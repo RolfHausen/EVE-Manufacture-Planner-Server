@@ -1,0 +1,15 @@
+release/datamodel.o
+release/dbmanager.o
+release/item.o
+release/main.o
+release/mainwindow.o
+release/pidata.o
+release/piproduct.o
+release/planet.o
+release/planetaryview.o
+release/productionview.o
+release/qrc_qmake_qmake_qm_files.o
+release/moc_mainwindow.o
+release/moc_planet.o
+release/moc_planetaryview.o
+release/moc_productionview.o

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProductionView</class>
+ <widget class="QDialog" name="ProductionView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>756</width>
+    <height>361</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTreeView" name="PISelectionTreeView">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>251</width>
+     <height>311</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ClearPushButton">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>320</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ClosePushButton">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>320</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+  <widget class="QTreeWidget" name="ProductionDetailsTreeWidget">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>0</y>
+     <width>501</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>Products</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Inputamount</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Outputamount</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>ClosePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ProductionView</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>690</x>
+     <y>335</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>377</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

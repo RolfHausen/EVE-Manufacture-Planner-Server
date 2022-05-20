@@ -1,0 +1,15 @@
+debug/datamodel.o
+debug/dbmanager.o
+debug/item.o
+debug/main.o
+debug/mainwindow.o
+debug/pidata.o
+debug/piproduct.o
+debug/planet.o
+debug/planetaryview.o
+debug/productionview.o
+debug/qrc_qmake_qmake_qm_files.o
+debug/moc_mainwindow.o
+debug/moc_planet.o
+debug/moc_planetaryview.o
+debug/moc_productionview.o

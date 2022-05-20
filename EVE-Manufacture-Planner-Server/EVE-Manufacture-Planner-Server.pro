@@ -1,4 +1,5 @@
-QT       += core gui
+QT += core gui
+QT += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,14 +10,53 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    component.cpp \
+    datamodel.cpp \
+    dbmanager.cpp \
+    factionmaterial.cpp \
+    gas.cpp \
+    iceproduct.cpp \
+    item.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mineral.cpp \
+    moongoo.cpp \
+    namedcomponent.cpp \
+    pidata.cpp \
+    piproduct.cpp \
+    planet.cpp \
+    planetaryview.cpp \
+    productionview.cpp \
+    salvage.cpp \
+    t1product.cpp \
+    t2product.cpp \
+    t3product.cpp
 
 HEADERS += \
-    mainwindow.h
+    component.h \
+    datamodel.h \
+    dbmanager.h \
+    factionmaterial.h \
+    gas.h \
+    iceproduct.h \
+    item.h \
+    mainwindow.h \
+    mineral.h \
+    moongoo.h \
+    namedcomponent.h \
+    pidata.h \
+    piproduct.h \
+    planet.h \
+    planetaryview.h \
+    productionview.h \
+    salvage.h \
+    t1product.h \
+    t2product.h \
+    t3product.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    productionview.ui
 
 TRANSLATIONS += \
     EVE-Manufacture-Planner-Server_de_DE.ts
@@ -27,3 +67,12 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    pwd.txt
+
+copydata.commands = $(COPY_FILE) \"$$shell_path($$PWD\\pwd.txt)\" \"$$shell_path($$OUT_PWD)\"
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata
