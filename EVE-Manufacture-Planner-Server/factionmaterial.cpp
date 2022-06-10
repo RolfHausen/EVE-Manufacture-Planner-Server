@@ -34,3 +34,13 @@ void FactionMaterial::setFMName(const QString &newFMName)
 {
     setName(newFMName);
 }
+
+const QString &FactionMaterial::FMGroup() const
+{
+    return ItemGroup();
+}
+
+void FactionMaterial::setFMGroup(const QString &newFMGroup)
+{
+    setItemGroup(newFMGroup);
+}

@@ -5,7 +5,7 @@ Salvage::Salvage()
 
 }
 
-int Salvage::getSALID() const
+int Salvage::SALID() const
 {
     return ItemId();
 }
@@ -15,7 +15,7 @@ void Salvage::setSALID(int newSALID)
     setItemId(newSALID);
 }
 
-float Salvage::getSALSize() const
+float Salvage::SALSize() const
 {
     return Size();
 }
@@ -25,7 +25,7 @@ void Salvage::setSALSize(float newSALSize)
     setSize(newSALSize);
 }
 
-const QString &Salvage::getSALName() const
+const QString &Salvage::SALName() const
 {
     return Name();
 }
@@ -33,4 +33,14 @@ const QString &Salvage::getSALName() const
 void Salvage::setSALName(const QString &newSALName)
 {
     setName(newSALName);
+}
+
+const QString &Salvage::SALGroup() const
+{
+    return ItemGroup();
+}
+
+void Salvage::setSALGroup(const QString &newSALGroup)
+{
+    setItemGroup(newSALGroup);
 }

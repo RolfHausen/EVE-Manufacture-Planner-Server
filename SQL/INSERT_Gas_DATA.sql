@@ -1,0 +1,18 @@
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Amber Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Amber Mykoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Azure Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Azure Mykoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Celadon Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Celadon Mykoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Golden Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Golden Mykoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Lime Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Lime Mykoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Malachite Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Malachite Mykoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Vermillion Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Vermillion Mykoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Viridian Cytoserocin',10,'Harvestable Cloud')
+INSERT INTO Gas(GName,GSize,GGroup) VALUES('Viridian Mykoserocin',10,'Harvestable Cloud')
+
+

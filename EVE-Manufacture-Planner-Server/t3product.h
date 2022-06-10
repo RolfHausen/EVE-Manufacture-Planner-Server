@@ -4,7 +4,7 @@
 
 #include <item.h>
 
-class T3Product : Item
+class T3Product : public Item
 {
 public:
     T3Product();

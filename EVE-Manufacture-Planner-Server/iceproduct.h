@@ -3,7 +3,7 @@
 
 #include <item.h>
 
-class IceProduct :Item
+class IceProduct: public Item
 {
 public:
     IceProduct();
@@ -13,6 +13,13 @@ public:
     void setIceSize(float newIceSize);
     const QString &IceName() const;
     void setIceName(const QString &newIceName);
+
+    const QString &getIceGroup() const;
+    void setIceGroup(const QString &newIceGroup);
+
+    int MatId() const;
+    void setMatId(int newMatId);
+
 };
 
 #endif // ICEPRODUCT_H

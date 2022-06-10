@@ -34,3 +34,13 @@ void T1Product::setT1Name(const QString &newT1Name)
 {
     setName(newT1Name);
 }
+
+const QString &T1Product::T1Group() const
+{
+    return ItemGroup();
+}
+
+void T1Product::setT1Group(const QString &newT1Group)
+{
+    setItemGroup(newT1Group);
+}

@@ -2,7 +2,7 @@
 #define MINERAL_H
 #include<item.h>
 
-class Mineral : Item
+class Mineral : public Item
 {
     //this particular class seems to not make sense in the first look
     //but this is needed to store all types of items in the inventory later
@@ -17,15 +17,10 @@ public:
     void setMinId(int newMinId);
     float MinSize() const;
     void setMinSize(float newMinSize);
-
     const QString &MinName() const;
     void setMinName(const QString &newMinName);
-
-
-
-
-
-
+    const QString &MinGroup() const;
+    void setMinGroup(const QString &newMinGroup);
 };
 
 #endif // MINERAL_H

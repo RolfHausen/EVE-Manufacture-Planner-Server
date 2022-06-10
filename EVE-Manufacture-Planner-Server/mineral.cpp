@@ -35,3 +35,12 @@ void Mineral::setMinName(const QString &newMinName)
     setName(newMinName);
 }
 
+const QString &Mineral::MinGroup() const
+{
+    return ItemGroup();
+}
+
+void Mineral::setMinGroup(const QString &newMinGroup)
+{
+    setItemGroup(newMinGroup);
+}

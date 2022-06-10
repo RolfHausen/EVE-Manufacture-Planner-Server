@@ -17,10 +17,18 @@ public:
     float Size() const;
     void setSize(float newSize);
 
+    const QString &ItemGroup() const;
+    void setItemGroup(const QString &newItemGroup);
+
+    int MatId() const;
+    void setMatId(int newMatId);
+
 private:
-    int m_itemId;
+    int m_ItemId;
     QString m_Name;
     float m_Size;
+    QString m_ItemGroup;
+    int m_MatId; //this is the identificationnumber in the material-databasetable which is unique
 
 };
 

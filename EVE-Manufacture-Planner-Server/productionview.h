@@ -22,13 +22,15 @@ public:
 private slots:
 
     void on_PISelectionTreeView_doubleClicked(const QModelIndex &index);
+    void on_BlueprintSelectionComboBox_activated(int index);
 
     void on_ClearPushButton_clicked();
 
 private:
     Ui::ProductionView *ui;
     DataModel m_DM;
-    QStringListModel *PISelectionModel;
+    QStringListModel* m_PISelectionModel;
+    QStringList m_BlueprintStringList;
 };
 
 #endif // PRODUCTIONVIEW_H

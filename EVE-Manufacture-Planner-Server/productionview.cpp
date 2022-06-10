@@ -17,9 +17,19 @@ ProductionView::ProductionView(QWidget *parent) :
     m_DM.LoadPIData();
 
     //get Data from Model
-    PISelectionModel = new QStringListModel();
-    PISelectionModel->setStringList(m_DM.getPIDataStringList());
-    ui->PISelectionTreeView->setModel(PISelectionModel);
+    m_PISelectionModel = new QStringListModel();
+    m_PISelectionModel->setStringList(m_DM.getPIDataStringList());
+    ui->PISelectionTreeView->setModel(m_PISelectionModel);
+
+    //add all Blueprintnames as Items into the Combobox
+
+    m_DM.LoadBlueprints(); //loads all Blueprints from Db
+    m_DM.LoadMaterialData(); //loads all Materials from Db
+    m_DM.LoadBlueprintMaterials(); //loads the needed Materials for each Blueprint
+
+    m_BlueprintStringList = m_DM.getBlueprintStringList();
+    ui->BlueprintSelectionComboBox->addItems(m_BlueprintStringList);
+    QObject::connect (ui->BlueprintSelectionComboBox, SIGNAL(activated(int)), this, SLOT( on_BlueprintSelectionComboBox_activated(int index)));
 }
 
 ProductionView::~ProductionView()
@@ -33,8 +43,15 @@ void ProductionView::on_PISelectionTreeView_doubleClicked(const QModelIndex &ind
     //  Reason is: in the future this will be a List Sorted by Types
     //  and Filters so that index will not correspond with the index in PIData
     */
-    PIProduct p=m_DM.getPIData().getItemByName(PISelectionModel->data(index).toString());
+    PIProduct p=m_DM.getPIData().getItemByName(m_PISelectionModel->data(index).toString());
     m_DM.getPIDataTreeItem(ui->ProductionDetailsTreeWidget,p);
+}
+
+void ProductionView::on_BlueprintSelectionComboBox_activated(int index)
+{
+    //this will list the needed ressources for the selected blueprint within the TreeWidget
+    Blueprint bp = m_DM.getBlueprintByName(m_BlueprintStringList[index]);
+    m_DM.getBlueprintMaterialsTreeItem(ui->ProductionDetailsTreeWidget,bp);
 }
 
 void ProductionView::on_ClearPushButton_clicked()

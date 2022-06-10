@@ -11,8 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QTreeWidget>
@@ -26,6 +28,9 @@ public:
     QPushButton *ClearPushButton;
     QPushButton *ClosePushButton;
     QTreeWidget *ProductionDetailsTreeWidget;
+    QComboBox *BlueprintSelectionComboBox;
+    QLabel *label;
+    QLabel *label_2;
 
     void setupUi(QDialog *ProductionView)
     {
@@ -34,7 +39,7 @@ public:
         ProductionView->resize(756, 361);
         PISelectionTreeView = new QTreeView(ProductionView);
         PISelectionTreeView->setObjectName(QString::fromUtf8("PISelectionTreeView"));
-        PISelectionTreeView->setGeometry(QRect(0, 0, 251, 311));
+        PISelectionTreeView->setGeometry(QRect(0, 80, 251, 231));
         ClearPushButton = new QPushButton(ProductionView);
         ClearPushButton->setObjectName(QString::fromUtf8("ClearPushButton"));
         ClearPushButton->setGeometry(QRect(500, 320, 121, 31));
@@ -44,6 +49,15 @@ public:
         ProductionDetailsTreeWidget = new QTreeWidget(ProductionView);
         ProductionDetailsTreeWidget->setObjectName(QString::fromUtf8("ProductionDetailsTreeWidget"));
         ProductionDetailsTreeWidget->setGeometry(QRect(250, 0, 501, 311));
+        BlueprintSelectionComboBox = new QComboBox(ProductionView);
+        BlueprintSelectionComboBox->setObjectName(QString::fromUtf8("BlueprintSelectionComboBox"));
+        BlueprintSelectionComboBox->setGeometry(QRect(0, 20, 241, 22));
+        label = new QLabel(ProductionView);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(0, 0, 241, 16));
+        label_2 = new QLabel(ProductionView);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(0, 60, 241, 16));
 
         retranslateUi(ProductionView);
         QObject::connect(ClosePushButton, SIGNAL(clicked()), ProductionView, SLOT(close()));
@@ -60,6 +74,8 @@ public:
         ___qtreewidgetitem->setText(2, QCoreApplication::translate("ProductionView", "Outputamount", nullptr));
         ___qtreewidgetitem->setText(1, QCoreApplication::translate("ProductionView", "Inputamount", nullptr));
         ___qtreewidgetitem->setText(0, QCoreApplication::translate("ProductionView", "Products", nullptr));
+        label->setText(QCoreApplication::translate("ProductionView", "Select Blueprint:", nullptr));
+        label_2->setText(QCoreApplication::translate("ProductionView", "Select Planetary Product", nullptr));
     } // retranslateUi
 
 };

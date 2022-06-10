@@ -3,7 +3,7 @@
 
 #include <item.h>
 
-class T1Product : Item
+class T1Product : public Item
 {
 public:
     T1Product();
@@ -13,6 +13,10 @@ public:
     void setT1Size(float newT1Size);
     const QString &T1Name() const;
     void setT1Name(const QString &newT1Name);
+
+
+    const QString &T1Group() const;
+    void setT1Group(const QString &newT1Group);
 };
 
 #endif // T1PRODUCT_H

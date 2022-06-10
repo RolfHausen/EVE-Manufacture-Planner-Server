@@ -58,7 +58,7 @@ PIData DbManager::loadPIProducts()
 {
     PIData data;
 
-    QSqlQuery query("SELECT PIID,PIName,PISize,PIIngredient_1,PIIngredient_2,PIIngredient_3,PIPx,PIIngredientamount,PIQuantity,PIImage,PIImageFile FROM PI_Product",m_DB);
+    QSqlQuery query("SELECT PIID,PIName,PISize,PIIngredient_1,PIIngredient_2,PIIngredient_3,PIPx,PIIngredientamount,PIQuantity,PIImage,PIImageFile FROM PIProduct",m_DB);
 
     while (query.next())
     {
@@ -147,6 +147,7 @@ QList<Planet*> DbManager::loadPlanetaryData()
         p->setPlanetName(query.value("PLName").toString());
         p->setSystemName(query.value("PLSystemname").toString());
 
+        //this is for converting the Enum into string
         const QMetaObject* metaObj = p->metaObject();
         QMetaEnum e = metaObj->enumerator(metaObj->indexOfEnumerator("PlanetTypes"));
         //conversion to char*
@@ -295,6 +296,492 @@ int DbManager::GetPlanetIDIfExists(Planet& p)
         m_Errors.append(query.lastError().text());
     }
     return PlanetId;
+}
+
+QList<AbyssalMaterial> DbManager::LoadAbyssalMaterials()
+{
+    QSqlQuery query(m_DB);
+    QList<AbyssalMaterial> Abyssals;
+    if(query.exec("SELECT AMID,AMName,AMSize,AMGroup FROM AbyssalMaterial"))
+    {
+        while(query.next())
+        {
+            AbyssalMaterial am;
+            am.setAMID(query.value("AMID").toUInt());
+            am.setAMName(query.value("AMName").toString());
+            am.setAMSize(query.value("AMSize").toFloat());
+            am.setAMGroup(query.value("AMGroup").toString());
+            Abyssals.append(am);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+
+    return Abyssals; //in case of an Error this list is Empty;
+
+}
+
+QList<Commodity> DbManager::LoadCommodities()
+{
+    QSqlQuery query(m_DB);
+    QList<Commodity> Commodities;
+    if(query.exec("SELECT COID,COName,COSize,COGroup,COBPID FROM Commodity"))
+    {
+        while (query.next())
+        {
+            Commodity comm;
+            comm.setCOID(query.value("COID").toUInt());
+            comm.setCOName(query.value("COName").toString());
+            comm.setCOSize(query.value("COSize").toFloat());
+            comm.setCOGroup(query.value("COGroup").toString());
+            Commodities.append(comm);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return Commodities;
+}
+
+QList<FuelBlock> DbManager::LoadFuelBlocks()
+{
+    QSqlQuery query(m_DB);
+    QList<FuelBlock> FuelBlocks;
+    if(query.exec("SELECT FBID,FBName,FBSize,FBGroup FROM FuelBlock"))
+    {
+        while (query.next())
+        {
+            FuelBlock fb;
+            fb.setFBID(query.value("FBID").toUInt());
+            fb.setFBName(query.value("FBName").toString());
+            fb.setFBSize(query.value("FBSize").toFloat());
+            fb.setFBGroup(query.value("FBGroup").toString());
+            FuelBlocks.append(fb);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return FuelBlocks;
+
+}
+
+QList<Gas> DbManager::LoadGases()
+{
+    QSqlQuery query(m_DB);
+    QList<Gas> Gases;
+    if(query.exec("SELECT GID,GName,GSize,GGroup FROM Gas"))
+    {
+        while (query.next())
+        {
+            Gas g;
+            g.setGID(query.value("GID").toUInt());
+            g.setGName(query.value("GName").toString());
+            g.setGSize(query.value("GSize").toFloat());
+            g.setGGroup(query.value("GGroup").toString());
+            Gases.append(g);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return Gases;
+}
+
+QList<IceProduct> DbManager::LoadIceProducts()
+{
+    QSqlQuery query(m_DB);
+    QList<IceProduct> IceProducts;
+    if(query.exec("SELECT ICEID,ICEName,ICESize,ICEGroup FROM IceProduct"))
+    {
+        while (query.next())
+        {
+            IceProduct ice;
+            ice.setIceID(query.value("ICEID").toUInt());
+            ice.setIceName(query.value("ICEName").toString());
+            ice.setIceSize(query.value("ICESize").toFloat());
+            ice.setIceGroup(query.value("ICEGroup").toString());
+            IceProducts.append(ice);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return IceProducts;
+}
+
+QList<Mineral> DbManager::LoadMinerals()
+{
+    QSqlQuery query(m_DB);
+    QList<Mineral> Minerals;
+    if(query.exec("SELECT MINID,MINName,MINSize,MINGroup FROM Mineral"))
+    {
+        while (query.next())
+        {
+            Mineral min;
+            min.setMinId(query.value("MINID").toUInt());
+            min.setMinName(query.value("MINName").toString());
+            min.setMinSize(query.value("MINSize").toFloat());
+            min.setMinGroup(query.value("MINGroup").toString());
+            Minerals.append(min);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return Minerals;
+}
+
+QList<MoonGoo> DbManager::LoadMoonGoos()
+{
+    QSqlQuery query(m_DB);
+    QList<MoonGoo> MoonGoos;
+    if(query.exec("SELECT MGID,MGName,MGSize,MGGroup FROM MoonGoo"))
+    {
+        while (query.next())
+        {
+            MoonGoo mg;            
+            mg.setMGID(query.value("MGID").toUInt());
+            mg.setMGName(query.value("MGName").toString());
+            mg.setMGSize(query.value("MGSize").toFloat());
+            mg.setMGGroup(query.value("MGGroup").toString());
+            MoonGoos.append(mg);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return MoonGoos;
+}
+
+QList<NamedComponent> DbManager::LoadNamedComponents()
+{
+    QSqlQuery query(m_DB);
+    QList<NamedComponent> NComps;
+    if(query.exec("SELECT NCID,NCName,NCSize,NCGroup FROM NamedComponent"))
+    {
+        while (query.next())
+        {
+            NamedComponent nc;
+            nc.setNCID(query.value("NCID").toUInt());
+            nc.setNCName(query.value("NCName").toString());
+            nc.setNCSize(query.value("NCSize").toFloat());
+            nc.setNCGroup(query.value("NCGroup").toString());
+            NComps.append(nc);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return NComps;
+}
+
+QList<ReactionMaterial> DbManager::LoadReactionMaterials()
+{
+    QSqlQuery query(m_DB);
+    QList<ReactionMaterial> ReactionMats;
+    if(query.exec("SELECT RMID,RMName,RMSize,RMGroup FROM ReactionMaterial"))
+    {
+        while (query.next())
+        {
+            ReactionMaterial rm;
+            rm.setRMID(query.value("RMID").toUInt());
+            rm.setRMName(query.value("RMName").toString());
+            rm.setRMSize(query.value("RMSize").toFloat());
+            rm.setRMGroup(query.value("RMGroup").toString());
+            ReactionMats.append(rm);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return ReactionMats;
+}
+
+QList<Salvage> DbManager::LoadSalvages()
+{
+    QSqlQuery query(m_DB);
+    QList<Salvage> Salvages;
+    if(query.exec("SELECT SALID,SALName,SALSize,SALGroup FROM Salvage"))
+    {
+        while (query.next())
+        {
+            Salvage s;
+            s.setSALID(query.value("SALID").toUInt());
+            s.setSALName(query.value("SALName").toString());
+            s.setSALSize(query.value("SALSize").toFloat());
+            s.setSALGroup(query.value("SAlGroup").toString());
+            Salvages.append(s);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return  Salvages;
+}
+
+QList<T1Product> DbManager::LoadT1Products()
+{
+    QSqlQuery query(m_DB);
+    QList<T1Product> T1Products;
+    if(query.exec("SELECT T1ID,T1Name,T1Size,T1Group FROM T1Product"))
+    {
+        while (query.next())
+        {
+            T1Product t1;
+            t1.setT1ID(query.value("T1ID").toUInt());
+            t1.setT1Name(query.value("T1Name").toString());
+            t1.setT1Size(query.value("T1Size").toFloat());
+            t1.setT1Group(query.value("T1Group").toString());
+            T1Products.append(t1);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return T1Products;
+}
+
+QList<Blueprint> DbManager::LoadBlueprints()
+{
+    QSqlQuery query(m_DB);
+    QList<Blueprint> Blueprints;
+    //Now we get the plain data from the Blueprint itself before we get the data for each needed material
+    if(query.exec("SELECT BPID,BPName,BPProduct,BPAmount,BPGroup,BPType,BPSize FROM Blueprint"))
+    {
+        while(query.next())
+        {
+            Blueprint Bp;
+            Bp.setBPID(query.value("BPID").toUInt());
+            Bp.setBPName(query.value("BPName").toString());
+            Bp.setBPProduct(query.value("BPProduct").toString());
+            Bp.setBPAmount(query.value("BPAmount").toUInt());
+            Bp.setBPGroup(query.value("BPGroup").toString());
+            Bp.setBPType(query.value("BPType").toString());
+            Bp.setBPSize(query.value("BPSize").toFloat());
+
+            Blueprints.append(Bp);
+        }
+    }
+    else
+    {
+        m_Errors.append(query.lastError().text());
+    }
+    return Blueprints;
+}
+
+bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,QList<Commodity> Commodities,QList<FuelBlock> FuelBlocks,QList<Gas> Gases,QList<IceProduct> IceProducts,QList<Mineral> Minerals,QList<MoonGoo> MoonGoos,QList<NamedComponent> NamedComponents,PIData Pdata,QList<ReactionMaterial> ReactionMaterials,QList<Salvage> Salvages,QList<T1Product> T1Products,Blueprint& Blueprint)
+{
+    QSqlQuery query(m_DB);
+
+        query.prepare("SELECT BPID,BPMMATID,BPMAmount,ItemID,MATGroup from BlueprintMaterialGroups Where BPID = :bpid");
+        query.bindValue(":bpid",Blueprint.BPID());
+        if(query.exec())
+        {
+            while(query.next()) //move through all lines of needed materials for the current blueprint
+            {                
+                //preprare the Data to be filled in.
+                int ItemId = query.value("ItemID").toUInt();
+                int ItemAmount = query.value("BPMAmount").toUInt();
+                int MatId = query.value("BPMMATID").toUInt();
+
+                if(query.value("MATGroup").toString()=="Mineral")
+                {
+                    for(int i=0;i<Minerals.count();i++)
+                    {
+                        if(Minerals[i].MinId()==ItemId)
+                        {
+                            Minerals[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = Minerals[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="IceProduct")
+                {
+                    for(int i=0;i<IceProducts.count();i++)
+                    {
+                        if(IceProducts[i].IceID()==ItemId)
+                        {
+                            IceProducts[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = IceProducts[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="Gas")
+                {
+                    for(int i=0;i<Gases.count();i++)
+                    {
+                        if(Gases[i].GID()==ItemId)
+                        {
+                            Gases[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = Gases[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="Salvage")
+                {
+                    for(int i=0;i<Salvages.count();i++)
+                    {
+                        if(Salvages[i].SALID()==ItemId)
+                        {
+                            Salvages[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = Salvages[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="PIProduct")
+                {
+                    PIProduct* pi = Pdata.getbyId(ItemId);
+                    pi->setMatId(MatId);
+                    Material Mat;
+                    Mat.amount=ItemAmount;
+                    Mat.item = *pi;
+                    Blueprint.AddMaterial(MatId,Mat);
+
+
+                }
+                else if(query.value("MATGroup").toString()=="Commodity")
+                {
+                    for(int i=0;i<Commodities.count();i++)
+                    {
+                        if(Commodities[i].COID()==ItemId)
+                        {
+                            Commodities[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = Commodities[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="MoonGoo")
+                {
+                    for(int i=0;i<MoonGoos.count();i++)
+                    {
+                        if(MoonGoos[i].MGID()==ItemId)
+                        {
+                            MoonGoos[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = MoonGoos[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="Reaction")
+                {
+                    for(int i=0;i<ReactionMaterials.count();i++)
+                    {
+                        if(ReactionMaterials[i].RMID()==ItemId)
+                        {
+                            ReactionMaterials[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = ReactionMaterials[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="T1Product")
+                {
+                    for(int i=0;i<T1Products.count();i++)
+                    {
+                        if(T1Products[i].T1ID()==ItemId)
+                        {
+                            T1Products[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = T1Products[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="NamedComponent")
+                {
+                    for(int i=0;i<NamedComponents.count();i++)
+                    {
+                        if(NamedComponents[i].NCID()==ItemId)
+                        {
+                            NamedComponents[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = NamedComponents[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="FuelBlock")
+                {
+                    for(int i=0;i<FuelBlocks.count();i++)
+                    {
+                        if(FuelBlocks[i].FBID()==ItemId)
+                        {
+                            FuelBlocks[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = FuelBlocks[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else if(query.value("MATGroup").toString()=="AbyssalMaterial")
+                {
+                    for(int i=0;i<AbyssalMaterials.count();i++)
+                    {
+                        if(AbyssalMaterials[i].AMID()==ItemId)
+                        {
+                            AbyssalMaterials[i].setMatId(MatId);
+                            Material Mat;
+                            Mat.amount=ItemAmount;
+                            Mat.item = AbyssalMaterials[i];
+                            Blueprint.AddMaterial(MatId,Mat);
+
+                        }
+                    }
+                }
+                else
+                {
+                    QString error="The Materialgroup:" + query.value("MATGroup").toString() + "at MATID: "+ QString::number(MatId) + " could not be solved. This could mean the Materialgroup is wrong or not implemented.";
+                    m_Errors.append(error);
+                    return false; //if one Group is false the whole list is not complete nor correct so we cancle immidietly
+                }
+            }
+        }    
+    return true;
 }
 
 QString DbManager::LastError()

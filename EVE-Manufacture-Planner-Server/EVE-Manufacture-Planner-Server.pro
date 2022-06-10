@@ -10,10 +10,13 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    component.cpp \
+    abyssalmaterial.cpp \
+    blueprint.cpp \
+    commodity.cpp \
     datamodel.cpp \
     dbmanager.cpp \
     factionmaterial.cpp \
+    fuelblock.cpp \
     gas.cpp \
     iceproduct.cpp \
     item.cpp \
@@ -27,16 +30,20 @@ SOURCES += \
     planet.cpp \
     planetaryview.cpp \
     productionview.cpp \
+    reactionmaterial.cpp \
     salvage.cpp \
     t1product.cpp \
     t2product.cpp \
     t3product.cpp
 
 HEADERS += \
-    component.h \
+    abyssalmaterial.h \
+    blueprint.h \
+    commodity.h \
     datamodel.h \
     dbmanager.h \
     factionmaterial.h \
+    fuelblock.h \
     gas.h \
     iceproduct.h \
     item.h \
@@ -49,6 +56,7 @@ HEADERS += \
     planet.h \
     planetaryview.h \
     productionview.h \
+    reactionmaterial.h \
     salvage.h \
     t1product.h \
     t2product.h \

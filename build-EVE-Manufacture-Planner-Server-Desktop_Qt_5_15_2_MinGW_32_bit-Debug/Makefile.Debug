@@ -50,54 +50,114 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\EVE-Manufacture-Planner-Server\datamodel.cpp \
+SOURCES       = ..\EVE-Manufacture-Planner-Server\abyssalmaterial.cpp \
+		..\EVE-Manufacture-Planner-Server\blueprint.cpp \
+		..\EVE-Manufacture-Planner-Server\commodity.cpp \
+		..\EVE-Manufacture-Planner-Server\datamodel.cpp \
 		..\EVE-Manufacture-Planner-Server\dbmanager.cpp \
+		..\EVE-Manufacture-Planner-Server\factionmaterial.cpp \
+		..\EVE-Manufacture-Planner-Server\fuelblock.cpp \
+		..\EVE-Manufacture-Planner-Server\gas.cpp \
+		..\EVE-Manufacture-Planner-Server\iceproduct.cpp \
 		..\EVE-Manufacture-Planner-Server\item.cpp \
 		..\EVE-Manufacture-Planner-Server\main.cpp \
 		..\EVE-Manufacture-Planner-Server\mainwindow.cpp \
+		..\EVE-Manufacture-Planner-Server\mineral.cpp \
+		..\EVE-Manufacture-Planner-Server\moongoo.cpp \
+		..\EVE-Manufacture-Planner-Server\namedcomponent.cpp \
 		..\EVE-Manufacture-Planner-Server\pidata.cpp \
 		..\EVE-Manufacture-Planner-Server\piproduct.cpp \
 		..\EVE-Manufacture-Planner-Server\planet.cpp \
 		..\EVE-Manufacture-Planner-Server\planetaryview.cpp \
-		..\EVE-Manufacture-Planner-Server\productionview.cpp debug\qrc_qmake_qmake_qm_files.cpp \
+		..\EVE-Manufacture-Planner-Server\productionview.cpp \
+		..\EVE-Manufacture-Planner-Server\reactionmaterial.cpp \
+		..\EVE-Manufacture-Planner-Server\salvage.cpp \
+		..\EVE-Manufacture-Planner-Server\t1product.cpp \
+		..\EVE-Manufacture-Planner-Server\t2product.cpp \
+		..\EVE-Manufacture-Planner-Server\t3product.cpp debug\qrc_qmake_qmake_qm_files.cpp \
 		debug\moc_mainwindow.cpp \
 		debug\moc_planet.cpp \
 		debug\moc_planetaryview.cpp \
 		debug\moc_productionview.cpp
-OBJECTS       = debug/datamodel.o \
+OBJECTS       = debug/abyssalmaterial.o \
+		debug/blueprint.o \
+		debug/commodity.o \
+		debug/datamodel.o \
 		debug/dbmanager.o \
+		debug/factionmaterial.o \
+		debug/fuelblock.o \
+		debug/gas.o \
+		debug/iceproduct.o \
 		debug/item.o \
 		debug/main.o \
 		debug/mainwindow.o \
+		debug/mineral.o \
+		debug/moongoo.o \
+		debug/namedcomponent.o \
 		debug/pidata.o \
 		debug/piproduct.o \
 		debug/planet.o \
 		debug/planetaryview.o \
 		debug/productionview.o \
+		debug/reactionmaterial.o \
+		debug/salvage.o \
+		debug/t1product.o \
+		debug/t2product.o \
+		debug/t3product.o \
 		debug/qrc_qmake_qmake_qm_files.o \
 		debug/moc_mainwindow.o \
 		debug/moc_planet.o \
 		debug/moc_planetaryview.o \
 		debug/moc_productionview.o
 
-DIST          = pwd.txt ..\EVE-Manufacture-Planner-Server\datamodel.h \
+DIST          = pwd.txt ..\EVE-Manufacture-Planner-Server\abyssalmaterial.h \
+		..\EVE-Manufacture-Planner-Server\blueprint.h \
+		..\EVE-Manufacture-Planner-Server\commodity.h \
+		..\EVE-Manufacture-Planner-Server\datamodel.h \
 		..\EVE-Manufacture-Planner-Server\dbmanager.h \
+		..\EVE-Manufacture-Planner-Server\factionmaterial.h \
+		..\EVE-Manufacture-Planner-Server\fuelblock.h \
+		..\EVE-Manufacture-Planner-Server\gas.h \
+		..\EVE-Manufacture-Planner-Server\iceproduct.h \
 		..\EVE-Manufacture-Planner-Server\item.h \
 		..\EVE-Manufacture-Planner-Server\mainwindow.h \
+		..\EVE-Manufacture-Planner-Server\mineral.h \
+		..\EVE-Manufacture-Planner-Server\moongoo.h \
+		..\EVE-Manufacture-Planner-Server\namedcomponent.h \
 		..\EVE-Manufacture-Planner-Server\pidata.h \
 		..\EVE-Manufacture-Planner-Server\piproduct.h \
 		..\EVE-Manufacture-Planner-Server\planet.h \
 		..\EVE-Manufacture-Planner-Server\planetaryview.h \
-		..\EVE-Manufacture-Planner-Server\productionview.h ..\EVE-Manufacture-Planner-Server\datamodel.cpp \
+		..\EVE-Manufacture-Planner-Server\productionview.h \
+		..\EVE-Manufacture-Planner-Server\reactionmaterial.h \
+		..\EVE-Manufacture-Planner-Server\salvage.h \
+		..\EVE-Manufacture-Planner-Server\t1product.h \
+		..\EVE-Manufacture-Planner-Server\t2product.h \
+		..\EVE-Manufacture-Planner-Server\t3product.h ..\EVE-Manufacture-Planner-Server\abyssalmaterial.cpp \
+		..\EVE-Manufacture-Planner-Server\blueprint.cpp \
+		..\EVE-Manufacture-Planner-Server\commodity.cpp \
+		..\EVE-Manufacture-Planner-Server\datamodel.cpp \
 		..\EVE-Manufacture-Planner-Server\dbmanager.cpp \
+		..\EVE-Manufacture-Planner-Server\factionmaterial.cpp \
+		..\EVE-Manufacture-Planner-Server\fuelblock.cpp \
+		..\EVE-Manufacture-Planner-Server\gas.cpp \
+		..\EVE-Manufacture-Planner-Server\iceproduct.cpp \
 		..\EVE-Manufacture-Planner-Server\item.cpp \
 		..\EVE-Manufacture-Planner-Server\main.cpp \
 		..\EVE-Manufacture-Planner-Server\mainwindow.cpp \
+		..\EVE-Manufacture-Planner-Server\mineral.cpp \
+		..\EVE-Manufacture-Planner-Server\moongoo.cpp \
+		..\EVE-Manufacture-Planner-Server\namedcomponent.cpp \
 		..\EVE-Manufacture-Planner-Server\pidata.cpp \
 		..\EVE-Manufacture-Planner-Server\piproduct.cpp \
 		..\EVE-Manufacture-Planner-Server\planet.cpp \
 		..\EVE-Manufacture-Planner-Server\planetaryview.cpp \
-		..\EVE-Manufacture-Planner-Server\productionview.cpp
+		..\EVE-Manufacture-Planner-Server\productionview.cpp \
+		..\EVE-Manufacture-Planner-Server\reactionmaterial.cpp \
+		..\EVE-Manufacture-Planner-Server\salvage.cpp \
+		..\EVE-Manufacture-Planner-Server\t1product.cpp \
+		..\EVE-Manufacture-Planner-Server\t2product.cpp \
+		..\EVE-Manufacture-Planner-Server\t3product.cpp
 QMAKE_TARGET  = EVE-Manufacture-Planner-Server
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = EVE-Manufacture-Planner-Server.exe
@@ -117,10 +177,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) EVE-Manufacture-Planner-Server.zip $(SOURCES) $(DIST) ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server.pro C:\Qt\5.15.2\mingw81_32\mkspecs\features\spec_pre.prf C:\Qt\5.15.2\mingw81_32\mkspecs\qdevice.pri C:\Qt\5.15.2\mingw81_32\mkspecs\features\device_config.prf C:\Qt\5.15.2\mingw81_32\mkspecs\common\sanitize.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\gcc-base.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\g++-base.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\angle.conf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\5.15.2\mingw81_32\mkspecs\common\windows-vulkan.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\g++-win32.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\windows-desktop.conf C:\Qt\5.15.2\mingw81_32\mkspecs\qconfig.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bodymovin_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_core.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_help.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_location.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_network.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3d.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3d_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dassetimport.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dassetimport_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3drender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3drender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3druntimerender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3druntimerender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dutils.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dutils_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_repparser.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_script.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_virtualkeyboard.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\features\qt_functions.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qt_config.prf C:\Qt\5.15.2\mingw81_32\mkspecs\win32-g++\qmake.conf C:\Qt\5.15.2\mingw81_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\5.15.2\mingw81_32\mkspecs\features\exclusive_builds.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\toolchain.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\default_pre.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\default_pre.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\resolve_config.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\default_post.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\build_pass.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\lrelease.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qml_debug.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\precompile_header.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\warn_on.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qt.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\resources_functions.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\resources.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\moc.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\opengl.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\uic.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qmake_use.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\file_copies.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\windows.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\testcase_targets.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\exceptions.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\yacc.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\lex.prf ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server.pro debug\qmake_qmake_qm_files.qrc C:\Qt\5.15.2\mingw81_32\lib\Qt5Widgets.prl C:\Qt\5.15.2\mingw81_32\lib\Qt5Gui.prl C:\Qt\5.15.2\mingw81_32\lib\Qt5Sql.prl C:\Qt\5.15.2\mingw81_32\lib\Qt5Core.prl C:\Qt\5.15.2\mingw81_32\lib\qtmain.prl ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server_de_DE.ts ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server_de_DE.ts ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server_de_DE.ts   debug\qmake_qmake_qm_files.qrc C:\Qt\5.15.2\mingw81_32\mkspecs\features\data\dummy.cpp ..\EVE-Manufacture-Planner-Server\datamodel.h ..\EVE-Manufacture-Planner-Server\dbmanager.h ..\EVE-Manufacture-Planner-Server\item.h ..\EVE-Manufacture-Planner-Server\mainwindow.h ..\EVE-Manufacture-Planner-Server\pidata.h ..\EVE-Manufacture-Planner-Server\piproduct.h ..\EVE-Manufacture-Planner-Server\planet.h ..\EVE-Manufacture-Planner-Server\planetaryview.h ..\EVE-Manufacture-Planner-Server\productionview.h  ..\EVE-Manufacture-Planner-Server\datamodel.cpp ..\EVE-Manufacture-Planner-Server\dbmanager.cpp ..\EVE-Manufacture-Planner-Server\item.cpp ..\EVE-Manufacture-Planner-Server\main.cpp ..\EVE-Manufacture-Planner-Server\mainwindow.cpp ..\EVE-Manufacture-Planner-Server\pidata.cpp ..\EVE-Manufacture-Planner-Server\piproduct.cpp ..\EVE-Manufacture-Planner-Server\planet.cpp ..\EVE-Manufacture-Planner-Server\planetaryview.cpp ..\EVE-Manufacture-Planner-Server\productionview.cpp ..\EVE-Manufacture-Planner-Server\mainwindow.ui ..\EVE-Manufacture-Planner-Server\productionview.ui    
+	$(ZIP) EVE-Manufacture-Planner-Server.zip $(SOURCES) $(DIST) ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server.pro C:\Qt\5.15.2\mingw81_32\mkspecs\features\spec_pre.prf C:\Qt\5.15.2\mingw81_32\mkspecs\qdevice.pri C:\Qt\5.15.2\mingw81_32\mkspecs\features\device_config.prf C:\Qt\5.15.2\mingw81_32\mkspecs\common\sanitize.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\gcc-base.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\g++-base.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\angle.conf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\5.15.2\mingw81_32\mkspecs\common\windows-vulkan.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\g++-win32.conf C:\Qt\5.15.2\mingw81_32\mkspecs\common\windows-desktop.conf C:\Qt\5.15.2\mingw81_32\mkspecs\qconfig.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bodymovin_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_core.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_help.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_location.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_network.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3d.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3d_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dassetimport.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dassetimport_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3drender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3drender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3druntimerender.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3druntimerender_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dutils.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick3dutils_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_repparser.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_script.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_virtualkeyboard.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\5.15.2\mingw81_32\mkspecs\features\qt_functions.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qt_config.prf C:\Qt\5.15.2\mingw81_32\mkspecs\win32-g++\qmake.conf C:\Qt\5.15.2\mingw81_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\5.15.2\mingw81_32\mkspecs\features\exclusive_builds.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\toolchain.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\default_pre.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\default_pre.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\resolve_config.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\default_post.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\build_pass.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\lrelease.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qml_debug.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\precompile_header.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\warn_on.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qt.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\resources_functions.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\resources.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\moc.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\opengl.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\uic.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\qmake_use.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\file_copies.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\win32\windows.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\testcase_targets.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\exceptions.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\yacc.prf C:\Qt\5.15.2\mingw81_32\mkspecs\features\lex.prf ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server.pro debug\qmake_qmake_qm_files.qrc C:\Qt\5.15.2\mingw81_32\lib\Qt5Widgets.prl C:\Qt\5.15.2\mingw81_32\lib\Qt5Gui.prl C:\Qt\5.15.2\mingw81_32\lib\Qt5Sql.prl C:\Qt\5.15.2\mingw81_32\lib\Qt5Core.prl C:\Qt\5.15.2\mingw81_32\lib\qtmain.prl ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server_de_DE.ts ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server_de_DE.ts ..\EVE-Manufacture-Planner-Server\EVE-Manufacture-Planner-Server_de_DE.ts   debug\qmake_qmake_qm_files.qrc C:\Qt\5.15.2\mingw81_32\mkspecs\features\data\dummy.cpp ..\EVE-Manufacture-Planner-Server\abyssalmaterial.h ..\EVE-Manufacture-Planner-Server\blueprint.h ..\EVE-Manufacture-Planner-Server\commodity.h ..\EVE-Manufacture-Planner-Server\datamodel.h ..\EVE-Manufacture-Planner-Server\dbmanager.h ..\EVE-Manufacture-Planner-Server\factionmaterial.h ..\EVE-Manufacture-Planner-Server\fuelblock.h ..\EVE-Manufacture-Planner-Server\gas.h ..\EVE-Manufacture-Planner-Server\iceproduct.h ..\EVE-Manufacture-Planner-Server\item.h ..\EVE-Manufacture-Planner-Server\mainwindow.h ..\EVE-Manufacture-Planner-Server\mineral.h ..\EVE-Manufacture-Planner-Server\moongoo.h ..\EVE-Manufacture-Planner-Server\namedcomponent.h ..\EVE-Manufacture-Planner-Server\pidata.h ..\EVE-Manufacture-Planner-Server\piproduct.h ..\EVE-Manufacture-Planner-Server\planet.h ..\EVE-Manufacture-Planner-Server\planetaryview.h ..\EVE-Manufacture-Planner-Server\productionview.h ..\EVE-Manufacture-Planner-Server\reactionmaterial.h ..\EVE-Manufacture-Planner-Server\salvage.h ..\EVE-Manufacture-Planner-Server\t1product.h ..\EVE-Manufacture-Planner-Server\t2product.h ..\EVE-Manufacture-Planner-Server\t3product.h  ..\EVE-Manufacture-Planner-Server\abyssalmaterial.cpp ..\EVE-Manufacture-Planner-Server\blueprint.cpp ..\EVE-Manufacture-Planner-Server\commodity.cpp ..\EVE-Manufacture-Planner-Server\datamodel.cpp ..\EVE-Manufacture-Planner-Server\dbmanager.cpp ..\EVE-Manufacture-Planner-Server\factionmaterial.cpp ..\EVE-Manufacture-Planner-Server\fuelblock.cpp ..\EVE-Manufacture-Planner-Server\gas.cpp ..\EVE-Manufacture-Planner-Server\iceproduct.cpp ..\EVE-Manufacture-Planner-Server\item.cpp ..\EVE-Manufacture-Planner-Server\main.cpp ..\EVE-Manufacture-Planner-Server\mainwindow.cpp ..\EVE-Manufacture-Planner-Server\mineral.cpp ..\EVE-Manufacture-Planner-Server\moongoo.cpp ..\EVE-Manufacture-Planner-Server\namedcomponent.cpp ..\EVE-Manufacture-Planner-Server\pidata.cpp ..\EVE-Manufacture-Planner-Server\piproduct.cpp ..\EVE-Manufacture-Planner-Server\planet.cpp ..\EVE-Manufacture-Planner-Server\planetaryview.cpp ..\EVE-Manufacture-Planner-Server\productionview.cpp ..\EVE-Manufacture-Planner-Server\reactionmaterial.cpp ..\EVE-Manufacture-Planner-Server\salvage.cpp ..\EVE-Manufacture-Planner-Server\t1product.cpp ..\EVE-Manufacture-Planner-Server\t2product.cpp ..\EVE-Manufacture-Planner-Server\t3product.cpp ..\EVE-Manufacture-Planner-Server\mainwindow.ui ..\EVE-Manufacture-Planner-Server\productionview.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\datamodel.o debug\dbmanager.o debug\item.o debug\main.o debug\mainwindow.o debug\pidata.o debug\piproduct.o debug\planet.o debug\planetaryview.o debug\productionview.o debug\qrc_qmake_qmake_qm_files.o debug\moc_mainwindow.o debug\moc_planet.o debug\moc_planetaryview.o debug\moc_productionview.o
+	-$(DEL_FILE) debug\abyssalmaterial.o debug\blueprint.o debug\commodity.o debug\datamodel.o debug\dbmanager.o debug\factionmaterial.o debug\fuelblock.o debug\gas.o debug\iceproduct.o debug\item.o debug\main.o debug\mainwindow.o debug\mineral.o debug\moongoo.o debug\namedcomponent.o debug\pidata.o debug\piproduct.o debug\planet.o debug\planetaryview.o debug\productionview.o debug\reactionmaterial.o debug\salvage.o debug\t1product.o debug\t2product.o debug\t3product.o debug\qrc_qmake_qmake_qm_files.o debug\moc_mainwindow.o debug\moc_planet.o debug\moc_planetaryview.o debug\moc_productionview.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -307,6 +367,18 @@ debug/moc_mainwindow.cpp: ../EVE-Manufacture-Planner-Server/mainwindow.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -598,6 +670,18 @@ debug/moc_planetaryview.cpp: ../EVE-Manufacture-Planner-Server/planetaryview.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -758,6 +842,18 @@ debug/moc_productionview.cpp: ../EVE-Manufacture-Planner-Server/productionview.h
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -800,6 +896,148 @@ compiler_clean: compiler_lrelease_clean compiler_rcc_clean compiler_moc_predefs_
 
 
 ####### Compile
+
+debug/abyssalmaterial.o: ../EVE-Manufacture-Planner-Server/abyssalmaterial.cpp ../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\abyssalmaterial.o ..\EVE-Manufacture-Planner-Server\abyssalmaterial.cpp
+
+debug/blueprint.o: ../EVE-Manufacture-Planner-Server/blueprint.cpp ../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qiterator.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlist.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qpair.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qvector.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qpoint.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qregexp.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qdebug.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qhash.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtextstream.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qobject.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcoreevent.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetatype.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlocale.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qvariant.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qset.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\blueprint.o ..\EVE-Manufacture-Planner-Server\blueprint.cpp
+
+debug/commodity.o: ../EVE-Manufacture-Planner-Server/commodity.cpp ../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\commodity.o ..\EVE-Manufacture-Planner-Server\commodity.cpp
 
 debug/datamodel.o: ../EVE-Manufacture-Planner-Server/datamodel.cpp ../EVE-Manufacture-Planner-Server/datamodel.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QTreeWidgetItem \
@@ -938,6 +1176,18 @@ debug/datamodel.o: ../EVE-Manufacture-Planner-Server/datamodel.cpp ../EVE-Manufa
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -1026,6 +1276,18 @@ debug/dbmanager.o: ../EVE-Manufacture-Planner-Server/dbmanager.cpp ../EVE-Manufa
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -1039,6 +1301,150 @@ debug/dbmanager.o: ../EVE-Manufacture-Planner-Server/dbmanager.cpp ../EVE-Manufa
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqlrecord.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMapIterator
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dbmanager.o ..\EVE-Manufacture-Planner-Server\dbmanager.cpp
+
+debug/factionmaterial.o: ../EVE-Manufacture-Planner-Server/factionmaterial.cpp ../EVE-Manufacture-Planner-Server/factionmaterial.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\factionmaterial.o ..\EVE-Manufacture-Planner-Server\factionmaterial.cpp
+
+debug/fuelblock.o: ../EVE-Manufacture-Planner-Server/fuelblock.cpp ../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\fuelblock.o ..\EVE-Manufacture-Planner-Server\fuelblock.cpp
+
+debug/gas.o: ../EVE-Manufacture-Planner-Server/gas.cpp ../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\gas.o ..\EVE-Manufacture-Planner-Server\gas.cpp
+
+debug/iceproduct.o: ../EVE-Manufacture-Planner-Server/iceproduct.cpp ../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\iceproduct.o ..\EVE-Manufacture-Planner-Server\iceproduct.cpp
 
 debug/item.o: ../EVE-Manufacture-Planner-Server/item.cpp ../EVE-Manufacture-Planner-Server/item.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
@@ -1217,6 +1623,18 @@ debug/main.o: ../EVE-Manufacture-Planner-Server/main.cpp ../EVE-Manufacture-Plan
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -1415,6 +1833,18 @@ debug/mainwindow.o: ../EVE-Manufacture-Planner-Server/mainwindow.cpp ../EVE-Manu
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -1459,24 +1889,116 @@ debug/mainwindow.o: ../EVE-Manufacture-Planner-Server/mainwindow.cpp ../EVE-Manu
 		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qtableview.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QHeaderView \
 		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qheaderview.h \
-		ui_mainwindow.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtCore/QVariant \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QAction \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QApplication \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QMenu \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qmenu.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QMenuBar \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QWidget
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\EVE-Manufacture-Planner-Server\mainwindow.cpp
+
+debug/mineral.o: ../EVE-Manufacture-Planner-Server/mineral.cpp ../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mineral.o ..\EVE-Manufacture-Planner-Server\mineral.cpp
+
+debug/moongoo.o: ../EVE-Manufacture-Planner-Server/moongoo.cpp ../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moongoo.o ..\EVE-Manufacture-Planner-Server\moongoo.cpp
+
+debug/namedcomponent.o: ../EVE-Manufacture-Planner-Server/namedcomponent.cpp ../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\namedcomponent.o ..\EVE-Manufacture-Planner-Server\namedcomponent.cpp
 
 debug/pidata.o: ../EVE-Manufacture-Planner-Server/pidata.cpp ../EVE-Manufacture-Planner-Server/pidata.h \
 		../EVE-Manufacture-Planner-Server/piproduct.h \
@@ -1805,6 +2327,18 @@ debug/planetaryview.o: ../EVE-Manufacture-Planner-Server/planetaryview.cpp ../EV
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -1963,6 +2497,18 @@ debug/productionview.o: ../EVE-Manufacture-Planner-Server/productionview.cpp ../
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMap \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMetaEnum \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmetaobject.h \
+		../EVE-Manufacture-Planner-Server/blueprint.h \
+		../EVE-Manufacture-Planner-Server/abyssalmaterial.h \
+		../EVE-Manufacture-Planner-Server/commodity.h \
+		../EVE-Manufacture-Planner-Server/fuelblock.h \
+		../EVE-Manufacture-Planner-Server/gas.h \
+		../EVE-Manufacture-Planner-Server/iceproduct.h \
+		../EVE-Manufacture-Planner-Server/mineral.h \
+		../EVE-Manufacture-Planner-Server/moongoo.h \
+		../EVE-Manufacture-Planner-Server/namedcomponent.h \
+		../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/t1product.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qtsqlglobal.h \
@@ -1975,23 +2521,188 @@ debug/productionview.o: ../EVE-Manufacture-Planner-Server/productionview.cpp ../
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/QSqlRecord \
 		C:/Qt/5.15.2/mingw81_32/include/QtSql/qsqlrecord.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QMapIterator \
-		ui_productionview.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtCore/QVariant \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QApplication \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QPushButton \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QTreeView \
-		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QTreeWidget
+		ui_productionview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\productionview.o ..\EVE-Manufacture-Planner-Server\productionview.cpp
+
+debug/reactionmaterial.o: ../EVE-Manufacture-Planner-Server/reactionmaterial.cpp ../EVE-Manufacture-Planner-Server/reactionmaterial.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\reactionmaterial.o ..\EVE-Manufacture-Planner-Server\reactionmaterial.cpp
+
+debug/salvage.o: ../EVE-Manufacture-Planner-Server/salvage.cpp ../EVE-Manufacture-Planner-Server/salvage.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\salvage.o ..\EVE-Manufacture-Planner-Server\salvage.cpp
+
+debug/t1product.o: ../EVE-Manufacture-Planner-Server/t1product.cpp ../EVE-Manufacture-Planner-Server/t1product.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\t1product.o ..\EVE-Manufacture-Planner-Server\t1product.cpp
+
+debug/t2product.o: ../EVE-Manufacture-Planner-Server/t2product.cpp ../EVE-Manufacture-Planner-Server/t2product.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\t2product.o ..\EVE-Manufacture-Planner-Server\t2product.cpp
+
+debug/t3product.o: ../EVE-Manufacture-Planner-Server/t3product.cpp ../EVE-Manufacture-Planner-Server/t3product.h \
+		../EVE-Manufacture-Planner-Server/item.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstring.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qchar.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobal.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qconfig.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtcore-config.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qlogging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qflags.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qmutex.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qversiontagging.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringliteral.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringview.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\t3product.o ..\EVE-Manufacture-Planner-Server\t3product.cpp
 
 debug/qrc_qmake_qmake_qm_files.o: debug/qrc_qmake_qmake_qm_files.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qrc_qmake_qmake_qm_files.o debug\qrc_qmake_qmake_qm_files.cpp

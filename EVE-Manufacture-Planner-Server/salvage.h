@@ -3,16 +3,19 @@
 
 #include<item.h>
 
-class Salvage : Item
+class Salvage : public Item
 {
 public:
     Salvage();
-    int getSALID() const;
+    int SALID() const;
     void setSALID(int newSALID);
-    float getSALSize() const;
+    float SALSize() const;
     void setSALSize(float newSALSize);
-    const QString &getSALName() const;
+    const QString &SALName() const;
     void setSALName(const QString &newSALName);
+
+    const QString &SALGroup() const;
+    void setSALGroup(const QString &newSALGroup);
 };
 
 #endif // SALVAGE_H

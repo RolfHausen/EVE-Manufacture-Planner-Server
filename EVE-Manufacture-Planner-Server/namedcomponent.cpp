@@ -34,3 +34,13 @@ void NamedComponent::setNCName(const QString &newNCName)
 {
     setName(newNCName);
 }
+
+const QString &NamedComponent::NCGroup() const
+{
+    return ItemGroup();
+}
+
+void NamedComponent::setNCGroup(const QString &newNCGroup)
+{
+    setItemGroup(newNCGroup);
+}

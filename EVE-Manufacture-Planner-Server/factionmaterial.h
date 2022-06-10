@@ -3,7 +3,7 @@
 
 #include <item.h>
 
-class FactionMaterial :Item
+class FactionMaterial :public Item
 {
 public:
     FactionMaterial();
@@ -14,6 +14,9 @@ public:
     void setFMSize(float newFMSize);
     const QString &FMName() const;
     void setFMName(const QString &newFMName);
+
+    const QString &FMGroup() const;
+    void setFMGroup(const QString &newFMGroup);    
 };
 
 #endif // FACTIONMATERIAL_H

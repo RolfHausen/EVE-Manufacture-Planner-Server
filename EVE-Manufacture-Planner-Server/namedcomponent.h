@@ -3,7 +3,7 @@
 
 #include <item.h>
 
-class NamedComponent : Item
+class NamedComponent : public Item
 {
 public:
     NamedComponent();
@@ -13,6 +13,8 @@ public:
     void setNCSize(float newNCSize);
     const QString &NCName() const;
     void setNCName(const QString &newNCName);
+    const QString &NCGroup() const;
+    void setNCGroup(const QString &newNCGroup);
 };
 
 #endif // NAMEDCOMPONENT_H

@@ -34,3 +34,23 @@ void IceProduct::setIceName(const QString &newIceName)
 {
     setName(newIceName);
 }
+
+const QString &IceProduct::getIceGroup() const
+{
+    return ItemGroup();
+}
+
+void IceProduct::setIceGroup(const QString &newIceGroup)
+{
+    setItemGroup(newIceGroup);
+}
+
+int IceProduct::MatId() const
+{
+    return Item::MatId();
+}
+
+void IceProduct::setMatId(int newMatId)
+{
+    Item::setMatId(newMatId);
+}

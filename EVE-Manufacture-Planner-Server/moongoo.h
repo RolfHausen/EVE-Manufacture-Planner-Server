@@ -3,16 +3,19 @@
 
 #include<item.h>
 
-class MoonGoo : Item
+class MoonGoo : public Item
 {
 public:
     MoonGoo();
-    int getMGID() const;
+    int MGID() const;
     void setMGID(int newMGID);
-    float getMGSize() const;
+    float MGSize() const;
     void setMGSize(float newMGSize);
-    const QString &getMGName() const;
+    const QString &MGName() const;
     void setMGName(const QString &newMGName);
+    const QString &MGGroup() const;
+    void setMGGroup(const QString &newMGGroup);
+
 };
 
 #endif // MOONGOO_H

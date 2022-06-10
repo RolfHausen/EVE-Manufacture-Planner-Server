@@ -10,6 +10,7 @@
 
 class DataModel
 {
+
 public:
     DataModel();
     bool openDb();
@@ -34,13 +35,34 @@ public:
     QString LastError();
 
     void SavePlanet(QString name,QString systemname,QString type,QMap<QString,uint> sources);
+    bool LoadMaterialData();
+    bool LoadBlueprints();
+    bool LoadBlueprintMaterials();
+
+    QStringList getBlueprintStringList();
+    Blueprint getBlueprintByName(QString BpName);
+    void getBlueprintMaterialsTreeItem(QTreeWidget* parent,Blueprint bp);
 
 private:
     DbManager m_DbMan;
     QStringList m_Errors;
     QString readPwdFile();
     PIData m_PIData;
-    QList<Planet*> m_Planets;
+    QList<Planet*> m_Planets; //? does this really need to be a List of Pointers?
+
+    QList<AbyssalMaterial> m_AbyssalMaterials;
+    QList<Commodity> m_Commodities;
+    QList<FuelBlock> m_FuelBlocks;
+    QList<Gas> m_Gases;
+    QList<IceProduct> m_IceProducts;
+    QList<Mineral> m_Minerals;
+    QList<MoonGoo> m_MoonGoos;
+    QList<NamedComponent> m_NamedComponents;
+    QList<ReactionMaterial> m_ReactionMaterials;
+    QList<Salvage> m_Salvages;
+    QList<T1Product> m_T1Products;
+    QList<Blueprint> m_Blueprints;
+
 
     QTreeWidgetItem* buildPIDataItemTree(QTreeWidgetItem* parent,PIProduct *p);
 

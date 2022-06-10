@@ -34,3 +34,13 @@ void Gas::setGName(const QString &newGName)
 {
     setName(newGName);
 }
+
+const QString &Gas::GGroup() const
+{
+    return ItemGroup();
+}
+
+void Gas::setGGroup(const QString &newGGroup)
+{
+    setItemGroup(newGGroup);
+}

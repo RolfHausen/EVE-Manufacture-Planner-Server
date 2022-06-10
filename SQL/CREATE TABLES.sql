@@ -40,16 +40,8 @@ CREATE TABLE Mineral
 	MINImageFile 	VARBINARY(MAX) 	NULL
 );
 
-CREATE TABLE Component
-(
-    COID 		int 			PRIMARY KEY IDENTITY(1,1),
-    COName 		NVARCHAR(50) 	NOT NULL,
-    COSize 		FLOAT 			NOT NULL,
-	COGroup 	NVARCHAR(50) 	NOT NULL,
-	COBPID		int 			NULL,
-	COImage 	NVARCHAR(256) 	NULL,
-	COImageFile VARBINARY(MAX) 	NULL
-);
+-- The Component Table has been removed as the intended Data is stored in Commodities
+-- and it is the intention to hold the data as similar as possible to the game
 
 CREATE TABLE PIProduct			
 (
@@ -217,6 +209,26 @@ CREATE TABLE BlueprintMaterials
     FOREIGN KEY (BPMBPID) REFERENCES Blueprint (BPID),
     FOREIGN KEY (BPMMATID) REFERENCES Material (MATID)
 )
+
+CREATE TABLE ReactionMaterial
+(
+    RMID 			int 			PRIMARY KEY IDENTITY(1,1),
+    RMName 		NVARCHAR(100) 	NOT NULL,
+    RMSize 		FLOAT 			NOT NULL,
+	RMGroup 		NVARCHAR(100) 	NOT NULL,
+	RMImage 		NVARCHAR(256) 	NULL,
+	RMImageFile 	VARBINARY(MAX) 	NULL
+);
+
+CREATE TABLE Commodity
+(
+    COID 			int 			PRIMARY KEY IDENTITY(1,1),
+    COName 		NVARCHAR(100) 	NOT NULL,
+    COSize 		FLOAT 			NOT NULL,
+	COGroup 		NVARCHAR(100) 	NOT NULL,
+	COImage 		NVARCHAR(256) 	NULL,
+	COImageFile 	VARBINARY(MAX) 	NULL
+);
 
 
 

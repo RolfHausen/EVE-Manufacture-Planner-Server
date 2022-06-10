@@ -138,11 +138,16 @@ void DataModel::getPIDataTreeItem(QTreeWidget* parent,PIProduct p)
 {
     //this method is NOT recursive!
 
+    //these constants are just for readabillity
+    const int COLPRODUCTNAME =0;
+    const int COLINPUTAMOUNT =1;
+    const int COLOUTPUTAMOUNT =2;
+
     QTreeWidgetItem *Itemroot;
     Itemroot= new QTreeWidgetItem(parent);
-    Itemroot->setText(0,p.getPIName());
-    Itemroot->setText(1,QString::number(p.getPIIngredientAmount()));
-    Itemroot->setText(2,QString::number(p.getPIQuantity()));
+    Itemroot->setText(COLPRODUCTNAME,p.getPIName());
+    Itemroot->setText(COLINPUTAMOUNT,QString::number(p.getPIIngredientAmount()));
+    Itemroot->setText(COLOUTPUTAMOUNT,QString::number(p.getPIQuantity()));
 
     if(p.getIngredient(1))
     {
@@ -257,6 +262,169 @@ void DataModel::SavePlanet(QString name, QString systemname, QString type, QMap<
     m_DbMan.savePlanet(p);
 }
 
+bool DataModel::LoadMaterialData()
+{    
+    //loads all the Material Data from the Database
+    m_AbyssalMaterials = m_DbMan.LoadAbyssalMaterials();
+    if(m_AbyssalMaterials.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_Commodities = m_DbMan.LoadCommodities();
+    if(m_Commodities.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_FuelBlocks = m_DbMan.LoadFuelBlocks();
+    if(m_FuelBlocks.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_Gases = m_DbMan.LoadGases();
+    if(m_Gases.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_IceProducts = m_DbMan.LoadIceProducts();
+    if(m_IceProducts.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_Minerals = m_DbMan.LoadMinerals();
+    if(m_Minerals.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_MoonGoos = m_DbMan.LoadMoonGoos();
+    if(m_MoonGoos.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_NamedComponents = m_DbMan.LoadNamedComponents();
+    if(m_NamedComponents.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_ReactionMaterials = m_DbMan.LoadReactionMaterials();
+    if(m_ReactionMaterials.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_Salvages = m_DbMan.LoadSalvages();
+    if(m_Salvages.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    m_T1Products = m_DbMan.LoadT1Products();
+    if(m_T1Products.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    return true; //if we come until here everything is loaded well.
+}
+
+bool DataModel::LoadBlueprints()
+{
+    m_Blueprints = m_DbMan.LoadBlueprints();
+    if(m_Blueprints.count()==0)
+    {
+        //then we have an Error occured.
+        m_Errors.append(m_DbMan.LastError());
+        return false;
+    }
+    return true; //loading ok
+}
+
+bool DataModel::LoadBlueprintMaterials()
+{
+    for(int i=0;i<m_Blueprints.count();i++)
+    {
+        if(!m_DbMan.LoadBlueprintMaterials(m_AbyssalMaterials,m_Commodities,m_FuelBlocks,m_Gases,m_IceProducts,m_Minerals,m_MoonGoos,m_NamedComponents,m_PIData,m_ReactionMaterials,m_Salvages,m_T1Products,m_Blueprints[i]))
+        {
+            //if an error occured
+            m_Errors.append(m_DbMan.LastError());
+            return false;
+        }
+    }
+
+    return true;
+}
+
+QStringList DataModel::getBlueprintStringList()
+{
+    QStringList BlueprintStringList;
+
+    for(int i=0; i<m_Blueprints.count();i++)
+    {
+        BlueprintStringList.append(m_Blueprints[i].BPName());
+    }
+
+    return BlueprintStringList;
+}
+
+Blueprint DataModel::getBlueprintByName(QString BpName)
+{
+    Blueprint blueprint;
+    bool found =false;
+    int i=0;
+    while (!found && i<m_Blueprints.count())
+    {
+        if(m_Blueprints[i].BPName()==BpName)
+        {
+            blueprint = m_Blueprints[i];
+            found =true;
+        }
+        i++;
+    }
+    return blueprint;
+}
+
+void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp)
+{
+    //these constants are just for readabillity
+    const int COLPRODUCTNAME =0;
+    const int COLINPUTAMOUNT =1;
+    const int COLOUTPUTAMOUNT =2;
+
+    QTreeWidgetItem *Itemroot;
+    Itemroot= new QTreeWidgetItem(parent);
+    Itemroot->setText(COLPRODUCTNAME,bp.BPProduct());
+    Itemroot->setText(COLOUTPUTAMOUNT,QString::number(bp.BPAmount()));
+
+    QList<Material> Mats = bp.Materials().values();
+    for(int i=0;i<Mats.count();i++)
+    {
+        QTreeWidgetItem *child;
+        child = new QTreeWidgetItem(Itemroot);
+        child->setText(COLPRODUCTNAME,Mats[i].item.Name());
+        child->setText(COLINPUTAMOUNT,QString::number(Mats[i].amount));
+    }
+}
+
+
+
 QString DataModel::readPwdFile()
 {
     //Load password from File pwd.txt - this is actual a simple solution to get progress.
@@ -273,11 +441,16 @@ QTreeWidgetItem *DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProdu
     //This is a recursive Method!
     //the code here is not redundant because this data need to be filled for each child also
 
+    //these constants are just for readabillity
+    const int COLPRODUCTNAME =0;
+    const int COLINPUTAMOUNT =1;
+    const int COLOUTPUTAMOUNT =2;
+
     QTreeWidgetItem *child;
     child = new QTreeWidgetItem(parent);
-    child->setText(0,p->getPIName());
-    child->setText(1,QString::number(p->getPIIngredientAmount()));
-    child->setText(2,QString::number(p->getPIQuantity()));
+    child->setText(COLPRODUCTNAME,p->getPIName());
+    child->setText(COLINPUTAMOUNT,QString::number(p->getPIIngredientAmount()));
+    child->setText(COLOUTPUTAMOUNT,QString::number(p->getPIQuantity()));
 
     if(p->getIngredient(1))
     {

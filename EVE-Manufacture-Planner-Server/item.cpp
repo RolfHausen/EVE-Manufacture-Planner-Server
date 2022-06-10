@@ -7,17 +7,17 @@ Item::Item()
 
 Item::Item(int id)
 {
-    m_itemId=id;
+    m_ItemId=id;
 }
 
 int Item::ItemId() const
 {
-    return m_itemId;
+    return m_ItemId;
 }
 
 void Item::setItemId(int newItemId)
 {
-    m_itemId = newItemId;
+    m_ItemId = newItemId;
 }
 
 const QString &Item::Name() const
@@ -38,4 +38,24 @@ float Item::Size() const
 void Item::setSize(float newSize)
 {
     m_Size = newSize;
+}
+
+const QString &Item::ItemGroup() const
+{
+    return m_ItemGroup;
+}
+
+void Item::setItemGroup(const QString &newItemGroup)
+{
+    m_ItemGroup = newItemGroup;
+}
+
+int Item::MatId() const
+{
+    return m_MatId;
+}
+
+void Item::setMatId(int newMatId)
+{
+    m_MatId = newMatId;
 }
