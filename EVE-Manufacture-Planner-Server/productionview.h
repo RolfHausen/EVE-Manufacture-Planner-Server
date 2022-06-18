@@ -18,13 +18,16 @@ class ProductionView : public QDialog
 public:
     explicit ProductionView(QWidget *parent = nullptr);
     ~ProductionView();
+    void setDataModel(DataModel dm);
+    void ShowData();
 
 private slots:
 
     void on_PISelectionTreeView_doubleClicked(const QModelIndex &index);
     void on_BlueprintSelectionComboBox_activated(int index);
-
     void on_ClearPushButton_clicked();
+
+
 
 private:
     Ui::ProductionView *ui;

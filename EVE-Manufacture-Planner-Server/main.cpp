@@ -1,8 +1,11 @@
-#include "mainwindow.h"
-
+#include <mainwindow.h>
+#include <dataloadworker.h>
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QThread>
+
+
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +20,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
     MainWindow w;
     w.show();
     return a.exec();

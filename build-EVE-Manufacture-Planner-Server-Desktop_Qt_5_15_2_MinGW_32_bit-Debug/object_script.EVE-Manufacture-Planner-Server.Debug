@@ -1,11 +1,13 @@
 debug/abyssalmaterial.o
 debug/blueprint.o
 debug/commodity.o
+debug/dataloadworker.o
 debug/datamodel.o
 debug/dbmanager.o
 debug/factionmaterial.o
 debug/fuelblock.o
 debug/gas.o
+debug/globals.o
 debug/iceproduct.o
 debug/item.o
 debug/main.o
@@ -24,6 +26,7 @@ debug/t1product.o
 debug/t2product.o
 debug/t3product.o
 debug/qrc_qmake_qmake_qm_files.o
+debug/moc_dataloadworker.o
 debug/moc_mainwindow.o
 debug/moc_planet.o
 debug/moc_planetaryview.o

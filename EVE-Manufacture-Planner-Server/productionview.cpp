@@ -5,36 +5,33 @@ ProductionView::ProductionView(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ProductionView)
 {
-    ui->setupUi(this);    
-    //Initialize Data to Show up in the View.
-    if (!m_DM.openDb())
-    {
-        QMessageBox QMsg;
-        QMsg.setIcon(QMessageBox::Icon::Critical);
-        QMsg.setWindowTitle("Database Connection Error");
-        QMsg.setText(m_DM.LastError());
-    }
-    m_DM.LoadPIData();
+    ui->setupUi(this);
+
+    connect(ui->BlueprintSelectionComboBox, SIGNAL(activated(int)), this, SLOT( on_BlueprintSelectionComboBox_activated(int index)));
+
+}
+
+ProductionView::~ProductionView()
+{
+    delete ui;
+}
+
+void ProductionView::setDataModel(DataModel dm)
+{
+    m_DM = dm;
+}
+
+void ProductionView::ShowData()
+{
+    //here we need no Mutex Lock for now because this only runs when the backgroundworker is done
 
     //get Data from Model
     m_PISelectionModel = new QStringListModel();
     m_PISelectionModel->setStringList(m_DM.getPIDataStringList());
     ui->PISelectionTreeView->setModel(m_PISelectionModel);
 
-    //add all Blueprintnames as Items into the Combobox
-
-    m_DM.LoadBlueprints(); //loads all Blueprints from Db
-    m_DM.LoadMaterialData(); //loads all Materials from Db
-    m_DM.LoadBlueprintMaterials(); //loads the needed Materials for each Blueprint
-
     m_BlueprintStringList = m_DM.getBlueprintStringList();
     ui->BlueprintSelectionComboBox->addItems(m_BlueprintStringList);
-    QObject::connect (ui->BlueprintSelectionComboBox, SIGNAL(activated(int)), this, SLOT( on_BlueprintSelectionComboBox_activated(int index)));
-}
-
-ProductionView::~ProductionView()
-{
-    delete ui;
 }
 
 void ProductionView::on_PISelectionTreeView_doubleClicked(const QModelIndex &index)
