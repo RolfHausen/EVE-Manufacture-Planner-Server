@@ -12,19 +12,18 @@ void PIData::Add(PIProduct p)
 
 PIProduct* PIData::getbyId(int piid)
 {
-    PIProduct* product;
-    bool found = false;
     int i = 0;
-    while (!found)
+    while (i < m_PIProducts.count())
     {
         if(m_PIProducts[i].getPIID()==piid)
         {
-            found=true;
-            product=&m_PIProducts[i];
+            PIProduct* product;
+            product = &m_PIProducts[i];
+            return product;
         }
         i++;
     }
-    return product;
+    return nullptr;
 }
 
 PIProduct PIData::getItem(int index)

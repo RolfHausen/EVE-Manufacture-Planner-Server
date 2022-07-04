@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>80</y>
+     <y>190</y>
      <width>251</width>
-     <height>231</height>
+     <height>121</height>
     </rect>
    </property>
   </widget>
@@ -83,6 +83,9 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="editable">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -101,7 +104,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>60</y>
+     <y>170</y>
      <width>241</width>
      <height>16</height>
     </rect>

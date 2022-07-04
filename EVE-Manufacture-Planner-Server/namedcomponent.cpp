@@ -2,7 +2,12 @@
 
 NamedComponent::NamedComponent()
 {
+    
+}
 
+NamedComponent::~NamedComponent()
+{
+    
 }
 
 int NamedComponent::NCID() const

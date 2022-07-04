@@ -2,7 +2,12 @@
 
 Blueprint::Blueprint()
 {
+    
+}
 
+Blueprint::~Blueprint()
+{
+    
 }
 
 int Blueprint::BPID() const
@@ -75,12 +80,12 @@ void Blueprint::setBPType(const QString &newBPType)
     m_BPType = newBPType;
 }
 
-const QMap<int, Material> &Blueprint::Materials() const
+const QList<Material> &Blueprint::Materials() const
 {
     return m_Materials;
 }
 
-void Blueprint::AddMaterial(int matid, Material mat)
+void Blueprint::AddMaterial(Material mat)
 {
-    m_Materials.insert(matid,mat);
+    m_Materials.append(mat);
 }

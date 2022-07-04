@@ -6,6 +6,7 @@ class ReactionMaterial: public Item
 {
 public:
     ReactionMaterial();
+    ~ReactionMaterial();
 
     int RMID() const;
     void setRMID(int newRMID);
@@ -16,11 +17,12 @@ public:
     const QString &RMGroup() const;
     void setRMGroup(const QString &newRMGroup);
 
+
+    int getRMBPID() const;
+    void setRMBPID(int newRMBPID);
+
 private:
-    int m_RMID;
-    float m_RMSize;
-    QString m_RMName;
-    QString m_RMGroup;
+    int RMBPID;
 };
 
 #endif // REACTIONMATERIAL_H

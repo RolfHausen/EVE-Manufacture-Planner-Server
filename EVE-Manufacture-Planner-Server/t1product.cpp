@@ -2,7 +2,12 @@
 
 T1Product::T1Product()
 {
+    
+}
 
+T1Product::~T1Product()
+{
+    
 }
 
 int T1Product::T1ID() const
@@ -43,4 +48,14 @@ const QString &T1Product::T1Group() const
 void T1Product::setT1Group(const QString &newT1Group)
 {
     setItemGroup(newT1Group);
+}
+
+int T1Product::getT1BPID() const
+{
+    return T1BPID;
+}
+
+void T1Product::setT1BPID(int newT1BPID)
+{
+    T1BPID = newT1BPID;
 }

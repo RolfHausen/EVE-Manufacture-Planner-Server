@@ -2,7 +2,12 @@
 
 Gas::Gas()
 {
+    
+}
 
+Gas::~Gas()
+{
+    
 }
 
 int Gas::GID() const

@@ -5,6 +5,8 @@
 #include <QFile>
 #include<QStringListModel>
 #include<QMessageBox>
+#include <QSortFilterProxyModel>
+#include <QCompleter>
 #include "datamodel.h"
 
 namespace Ui {
@@ -29,11 +31,16 @@ private slots:
 
 
 
+    void on_BlueprintSelectionComboBox_currentTextChanged(const QString &arg1);
+
 private:
     Ui::ProductionView *ui;
     DataModel m_DM;
     QStringListModel* m_PISelectionModel;
     QStringList m_BlueprintStringList;
+    QStringListModel* m_BpSelectionModel;
+    QSortFilterProxyModel* m_BPProxyModel;
+    QSortFilterProxyModel* m_BPProxyModel1;
 };
 
 #endif // PRODUCTIONVIEW_H

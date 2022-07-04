@@ -2,7 +2,12 @@
 
 Salvage::Salvage()
 {
+    
+}
 
+Salvage::~Salvage()
+{
+    
 }
 
 int Salvage::SALID() const

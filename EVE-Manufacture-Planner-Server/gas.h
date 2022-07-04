@@ -7,6 +7,8 @@ class Gas : public Item
 {
 public:
     Gas();
+    ~Gas();
+
     int GID() const;
     void setGID(int newGID);
     float GSize() const;

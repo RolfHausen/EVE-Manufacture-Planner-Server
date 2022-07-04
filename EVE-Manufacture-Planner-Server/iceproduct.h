@@ -7,6 +7,8 @@ class IceProduct: public Item
 {
 public:
     IceProduct();
+    ~IceProduct();
+
     int IceID() const;
     void setIceID(int newIceID);
     float IceSize() const;

@@ -7,6 +7,11 @@ PIProduct::PIProduct()
     m_PIIngredient_3=nullptr;
 }
 
+PIProduct::~PIProduct()
+{
+    
+}
+
 int PIProduct::getPIID()
 {
     return ItemId(); //returns the Id from Item.
@@ -109,4 +114,19 @@ void PIProduct::setPIFile(QString filename, QByteArray file)
 {
     m_PIfilename=filename;
     m_PIFile=file;
+}
+
+int PIProduct::multiplicator()
+{
+    int mult =0;
+    switch(m_PIGrade)
+    {
+    case PIGrades::P0: mult = 8; break; //the p0 Mulitplicator is also 8 because the transformation from P0 to P1 is 1:1
+    case PIGrades::P1: mult = 8; break;
+    case PIGrades::P2: mult = 4; break;
+    case PIGrades::P3: mult = 2; break;
+    case PIGrades::P4: mult = 1; break;
+    default: mult = 0; //this should never happen but just in case we set the multiplicator also to 0
+    }
+    return mult;
 }

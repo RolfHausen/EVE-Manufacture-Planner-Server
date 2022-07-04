@@ -7,6 +7,8 @@ class MoonGoo : public Item
 {
 public:
     MoonGoo();
+    ~MoonGoo();
+
     int MGID() const;
     void setMGID(int newMGID);
     float MGSize() const;

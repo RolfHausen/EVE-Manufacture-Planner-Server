@@ -63,8 +63,9 @@ private:
     QList<T1Product> m_T1Products;
     QList<Blueprint> m_Blueprints;
 
+    void buildPIDataItemTree(QTreeWidgetItem* parent,PIProduct *p, int amount);
+    void buildBlueprintItemTree(QTreeWidgetItem* parent, Blueprint bp, int amount);
 
-    QTreeWidgetItem* buildPIDataItemTree(QTreeWidgetItem* parent,PIProduct *p);
 
 };
 

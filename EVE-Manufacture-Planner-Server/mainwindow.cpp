@@ -16,12 +16,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     worker->moveToThread(t1);
     connect(worker, SIGNAL(error(QString)),this,SLOT(errorString(QString)));
+
     connect(t1, SIGNAL(started()),worker,SLOT(process()));
     connect(worker, SIGNAL(finished()),t1,SLOT(quit()));
     connect(worker, SIGNAL(finished()),worker, SLOT(deleteLater()));
     connect(t1, SIGNAL(finished()),t1,SLOT(deleteLater()));
 
-    qRegisterMetaType<DataModel>("DataModel");
+    qRegisterMetaType<DataModel>("DataModel"); //for using a Complex Datatye in the Eventloop we must register it.
 
     connect(worker, SIGNAL(deployData(DataModel)),this,SLOT(on_DataReady(DataModel)));
 

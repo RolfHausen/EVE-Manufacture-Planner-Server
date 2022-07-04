@@ -13,6 +13,8 @@ class Mineral : public Item
 
 public:
     Mineral();
+    ~Mineral();
+
     int MinId() const;
     void setMinId(int newMinId);
     float MinSize() const;

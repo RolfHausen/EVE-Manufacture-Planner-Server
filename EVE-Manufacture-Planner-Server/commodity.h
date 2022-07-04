@@ -6,6 +6,7 @@ class Commodity: public Item
 {
 public:
     Commodity();
+    ~Commodity();
 
     int COID() const;
     void setCOID(int newCOID);
@@ -14,7 +15,12 @@ public:
     const QString &getCOName() const;
     void setCOName(const QString &newCOName);
     const QString &getCOGroup() const;
-    void setCOGroup(const QString &newCOGroup);  
+    void setCOGroup(const QString &newCOGroup);
+    int getCOBPID() const;
+    void setCOBPID(int newCOBPID);
+
+private:
+    int COBPID;
 
 };
 

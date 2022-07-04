@@ -2,7 +2,12 @@
 
 MoonGoo::MoonGoo()
 {
+    
+}
 
+MoonGoo::~MoonGoo()
+{
+    
 }
 
 int MoonGoo::MGID() const

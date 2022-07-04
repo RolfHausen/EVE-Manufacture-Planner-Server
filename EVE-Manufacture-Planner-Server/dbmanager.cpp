@@ -72,15 +72,27 @@ PIData DbManager::loadPIProducts()
         //Ingredients can be null because not every product has them. e.g. P0 has no Ingredients
         if(!query.value("PIIngredient_1").isNull())
         {
-            p.setIngredient(data.getbyId(query.value("PIIngredient_1").toInt()),1);
+            PIProduct* ingredient = data.getbyId(query.value("PIIngredient_1").toInt());
+            if(ingredient != nullptr)
+            {
+                p.setIngredient(ingredient,1);
+            }
         }
         if(!query.value("PIIngredient_2").isNull())
         {
-            p.setIngredient(data.getbyId(query.value("PIIngredient_2").toInt()),2);
+            PIProduct* ingredient = data.getbyId(query.value("PIIngredient_2").toInt());
+            if(ingredient != nullptr)
+            {
+                p.setIngredient(ingredient,2);
+            }
         }
         if(!query.value("PIIngredient_3").isNull())
         {
-            p.setIngredient(data.getbyId(query.value("PIIngredient_3").toInt()),3);
+            PIProduct* ingredient = data.getbyId(query.value("PIIngredient_3").toInt());
+            if(ingredient != nullptr)
+            {
+                p.setIngredient(ingredient,3);
+            }
         }
         QString grade = query.value("PIPx").toString();
         int amount = query.value("PIIngredientamount").toInt();
@@ -336,6 +348,7 @@ QList<Commodity> DbManager::LoadCommodities()
             comm.setCOName(query.value("COName").toString());
             comm.setCOSize(query.value("COSize").toFloat());
             comm.setCOGroup(query.value("COGroup").toString());
+            comm.setCOBPID(query.value("COBPID").toUInt());
             Commodities.append(comm);
         }
     }
@@ -350,7 +363,7 @@ QList<FuelBlock> DbManager::LoadFuelBlocks()
 {
     QSqlQuery query(m_DB);
     QList<FuelBlock> FuelBlocks;
-    if(query.exec("SELECT FBID,FBName,FBSize,FBGroup FROM FuelBlock"))
+    if(query.exec("SELECT FBID,FBName,FBSize,FBGroup,FBBPID FROM FuelBlock"))
     {
         while (query.next())
         {
@@ -359,6 +372,7 @@ QList<FuelBlock> DbManager::LoadFuelBlocks()
             fb.setFBName(query.value("FBName").toString());
             fb.setFBSize(query.value("FBSize").toFloat());
             fb.setFBGroup(query.value("FBGroup").toString());
+            fb.setFBBPID(query.value("FBBPID").toUInt());
             FuelBlocks.append(fb);
         }
     }
@@ -489,7 +503,7 @@ QList<ReactionMaterial> DbManager::LoadReactionMaterials()
 {
     QSqlQuery query(m_DB);
     QList<ReactionMaterial> ReactionMats;
-    if(query.exec("SELECT RMID,RMName,RMSize,RMGroup FROM ReactionMaterial"))
+    if(query.exec("SELECT RMID,RMName,RMSize,RMGroup,RMBPID FROM ReactionMaterial"))
     {
         while (query.next())
         {
@@ -498,6 +512,7 @@ QList<ReactionMaterial> DbManager::LoadReactionMaterials()
             rm.setRMName(query.value("RMName").toString());
             rm.setRMSize(query.value("RMSize").toFloat());
             rm.setRMGroup(query.value("RMGroup").toString());
+            rm.setRMBPID(query.value("RMBPID").toUInt());
             ReactionMats.append(rm);
         }
     }
@@ -535,7 +550,7 @@ QList<T1Product> DbManager::LoadT1Products()
 {
     QSqlQuery query(m_DB);
     QList<T1Product> T1Products;
-    if(query.exec("SELECT T1ID,T1Name,T1Size,T1Group FROM T1Product"))
+    if(query.exec("SELECT T1ID,T1Name,T1Size,T1Group,T1BPID FROM T1Product"))
     {
         while (query.next())
         {
@@ -544,6 +559,7 @@ QList<T1Product> DbManager::LoadT1Products()
             t1.setT1Name(query.value("T1Name").toString());
             t1.setT1Size(query.value("T1Size").toFloat());
             t1.setT1Group(query.value("T1Group").toString());
+            t1.setT1BPID(query.value("T1BPID").toUInt());
             T1Products.append(t1);
         }
     }
@@ -559,7 +575,7 @@ QList<Blueprint> DbManager::LoadBlueprints()
     QSqlQuery query(m_DB);
     QList<Blueprint> Blueprints;
     //Now we get the plain data from the Blueprint itself before we get the data for each needed material
-    if(query.exec("SELECT BPID,BPName,BPProduct,BPAmount,BPGroup,BPType,BPSize FROM Blueprint"))
+    if(query.exec("SELECT BPID,BPName,BPProduct,BPAmount,BPGroup,BPType,BPSize FROM Blueprint Order by BPGroup"))
     {
         while(query.next())
         {
@@ -582,7 +598,7 @@ QList<Blueprint> DbManager::LoadBlueprints()
     return Blueprints;
 }
 
-bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,QList<Commodity> Commodities,QList<FuelBlock> FuelBlocks,QList<Gas> Gases,QList<IceProduct> IceProducts,QList<Mineral> Minerals,QList<MoonGoo> MoonGoos,QList<NamedComponent> NamedComponents,PIData Pdata,QList<ReactionMaterial> ReactionMaterials,QList<Salvage> Salvages,QList<T1Product> T1Products,Blueprint& Blueprint)
+bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial>& AbyssalMaterials,QList<Commodity>& Commodities,QList<FuelBlock>& FuelBlocks,QList<Gas>& Gases,QList<IceProduct>& IceProducts,QList<Mineral>& Minerals,QList<MoonGoo>& MoonGoos,QList<NamedComponent>& NamedComponents,PIData& Pdata,QList<ReactionMaterial>& ReactionMaterials,QList<Salvage>& Salvages,QList<T1Product>& T1Products,Blueprint& Blueprint)
 {
     QSqlQuery query(m_DB);
 
@@ -604,10 +620,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(Minerals[i].MinId()==ItemId)
                         {
                             Minerals[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = Minerals[i];
-                            Blueprint.AddMaterial(MatId,Mat);
+                            Material Mat(ItemAmount,Minerals[i],"Mineral");
+                            Blueprint.AddMaterial(Mat);
 
                         }
                     }
@@ -619,10 +633,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(IceProducts[i].IceID()==ItemId)
                         {
                             IceProducts[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = IceProducts[i];
-                            Blueprint.AddMaterial(MatId,Mat);
+                            Material Mat(ItemAmount,IceProducts[i],"IceProduct");
+                            Blueprint.AddMaterial(Mat);
 
                         }
                     }
@@ -634,10 +646,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(Gases[i].GID()==ItemId)
                         {
                             Gases[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = Gases[i];
-                            Blueprint.AddMaterial(MatId,Mat);
+                            Material Mat(ItemAmount,Gases[i],"Gas");
+                            Blueprint.AddMaterial(Mat);
 
                         }
                     }
@@ -649,10 +659,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(Salvages[i].SALID()==ItemId)
                         {
                             Salvages[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = Salvages[i];
-                            Blueprint.AddMaterial(MatId,Mat);
+                            Material Mat(ItemAmount,Salvages[i],"Salvage");
+                            Blueprint.AddMaterial(Mat);
 
                         }
                     }
@@ -660,12 +668,12 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                 else if(query.value("MATGroup").toString()=="PIProduct")
                 {
                     PIProduct* pi = Pdata.getbyId(ItemId);
-                    pi->setMatId(MatId);
-                    Material Mat;
-                    Mat.amount=ItemAmount;
-                    Mat.item = *pi;
-                    Blueprint.AddMaterial(MatId,Mat);
-
+                    if(pi!=nullptr)
+                    {
+                        pi->setMatId(MatId);
+                        Material Mat(ItemAmount,*pi,"PIProduct");
+                        Blueprint.AddMaterial(Mat);
+                    }
 
                 }
                 else if(query.value("MATGroup").toString()=="Commodity")
@@ -675,10 +683,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(Commodities[i].COID()==ItemId)
                         {
                             Commodities[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = Commodities[i];
-                            Blueprint.AddMaterial(MatId,Mat);
+                            Material Mat(ItemAmount,Commodities[i],"Commodity");
+                            Blueprint.AddMaterial(Mat);
 
                         }
                     }
@@ -690,11 +696,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(MoonGoos[i].MGID()==ItemId)
                         {
                             MoonGoos[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = MoonGoos[i];
-                            Blueprint.AddMaterial(MatId,Mat);
-
+                            Material Mat(ItemAmount,MoonGoos[i],"MoonGoo");
+                            Blueprint.AddMaterial(Mat);
                         }
                     }
                 }
@@ -705,11 +708,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(ReactionMaterials[i].RMID()==ItemId)
                         {
                             ReactionMaterials[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = ReactionMaterials[i];
-                            Blueprint.AddMaterial(MatId,Mat);
-
+                            Material Mat(ItemAmount,ReactionMaterials[i],"Reaction");
+                            Blueprint.AddMaterial(Mat);
                         }
                     }
                 }
@@ -720,11 +720,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(T1Products[i].T1ID()==ItemId)
                         {
                             T1Products[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = T1Products[i];
-                            Blueprint.AddMaterial(MatId,Mat);
-
+                            Material Mat(ItemAmount,T1Products[i],"T1Product");
+                            Blueprint.AddMaterial(Mat);
                         }
                     }
                 }
@@ -735,11 +732,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(NamedComponents[i].NCID()==ItemId)
                         {
                             NamedComponents[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = NamedComponents[i];
-                            Blueprint.AddMaterial(MatId,Mat);
-
+                            Material Mat(ItemAmount,NamedComponents[i],"NamedComponent");
+                            Blueprint.AddMaterial(Mat);
                         }
                     }
                 }
@@ -750,11 +744,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(FuelBlocks[i].FBID()==ItemId)
                         {
                             FuelBlocks[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = FuelBlocks[i];
-                            Blueprint.AddMaterial(MatId,Mat);
-
+                            Material Mat(ItemAmount,FuelBlocks[i],"FuelBlock");
+                            Blueprint.AddMaterial(Mat);
                         }
                     }
                 }
@@ -765,11 +756,8 @@ bool DbManager::LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,Q
                         if(AbyssalMaterials[i].AMID()==ItemId)
                         {
                             AbyssalMaterials[i].setMatId(MatId);
-                            Material Mat;
-                            Mat.amount=ItemAmount;
-                            Mat.item = AbyssalMaterials[i];
-                            Blueprint.AddMaterial(MatId,Mat);
-
+                            Material Mat(ItemAmount,AbyssalMaterials[i],"AbyssalMaterial");
+                            Blueprint.AddMaterial(Mat);
                         }
                     }
                 }
