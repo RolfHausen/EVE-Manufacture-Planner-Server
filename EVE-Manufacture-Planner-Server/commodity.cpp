@@ -2,7 +2,12 @@
 
 Commodity::Commodity()
 {
+    
+}
 
+Commodity::~Commodity()
+{
+    
 }
 
 int Commodity::COID() const
@@ -43,4 +48,14 @@ const QString &Commodity::getCOGroup() const
 void Commodity::setCOGroup(const QString &newCOGroup)
 {
     setItemGroup(newCOGroup);
+}
+
+int Commodity::getCOBPID() const
+{
+    return COBPID;
+}
+
+void Commodity::setCOBPID(int newCOBPID)
+{
+    COBPID = newCOBPID;
 }

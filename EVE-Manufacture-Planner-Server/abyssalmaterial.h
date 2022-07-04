@@ -6,6 +6,7 @@ class AbyssalMaterial: public Item
 {
 public:
     AbyssalMaterial();
+    ~AbyssalMaterial();
 
     int AMID() const;
     void setAMID(int newAMID);

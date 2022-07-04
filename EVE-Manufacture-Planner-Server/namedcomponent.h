@@ -7,6 +7,8 @@ class NamedComponent : public Item
 {
 public:
     NamedComponent();
+    ~NamedComponent();
+
     int NCID() const;
     void setNCID(int newNCID);
     float NCSize() const;

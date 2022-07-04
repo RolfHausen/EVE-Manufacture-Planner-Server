@@ -5,6 +5,8 @@
 #include <QFile>
 #include<QStringListModel>
 #include<QMessageBox>
+#include <QSortFilterProxyModel>
+#include <QCompleter>
 #include "datamodel.h"
 
 namespace Ui {
@@ -18,19 +20,27 @@ class ProductionView : public QDialog
 public:
     explicit ProductionView(QWidget *parent = nullptr);
     ~ProductionView();
+    void setDataModel(DataModel dm);
+    void ShowData();
 
 private slots:
 
     void on_PISelectionTreeView_doubleClicked(const QModelIndex &index);
     void on_BlueprintSelectionComboBox_activated(int index);
-
     void on_ClearPushButton_clicked();
+
+
+
+    void on_BlueprintSelectionComboBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::ProductionView *ui;
     DataModel m_DM;
     QStringListModel* m_PISelectionModel;
     QStringList m_BlueprintStringList;
+    QStringListModel* m_BpSelectionModel;
+    QSortFilterProxyModel* m_BPProxyModel;
+    QSortFilterProxyModel* m_BPProxyModel1;
 };
 
 #endif // PRODUCTIONVIEW_H

@@ -22,10 +22,9 @@ class PlanetaryView : public QDialog
     Q_OBJECT
 public:
     explicit PlanetaryView(QWidget *parent = nullptr);
+    void setDataModel(DataModel& dm);
 
 private:
-
-
     QHBoxLayout* PlanetaryViewHLayout;
     QVBoxLayout* AddPlanetsVLayout;
     QHBoxLayout* PlanetHLayout;
@@ -70,6 +69,8 @@ public slots:
     void onPlanetTypeComboBoxSelectionChanged(int index);
     void onSavePlanetData();
     void onResetPlanetaryView();
+
+
 
 };
 

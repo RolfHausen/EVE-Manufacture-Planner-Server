@@ -2,7 +2,12 @@
 
 Mineral::Mineral()
 {
+    
+}
 
+Mineral::~Mineral()
+{
+    
 }
 
 int Mineral::MinId() const

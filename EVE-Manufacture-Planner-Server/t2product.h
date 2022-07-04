@@ -8,6 +8,8 @@ class T2Product : Item
 {
 public:
     T2Product();
+    ~T2Product();
+
     int T2ID() const;
     void setT2ID(int newT2ID);
     float T2Size() const;

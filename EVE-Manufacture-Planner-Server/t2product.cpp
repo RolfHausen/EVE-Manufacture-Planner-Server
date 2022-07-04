@@ -2,7 +2,12 @@
 
 T2Product::T2Product()
 {
+    
+}
 
+T2Product::~T2Product()
+{
+    
 }
 
 int T2Product::T2ID() const

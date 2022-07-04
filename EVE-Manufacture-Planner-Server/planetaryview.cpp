@@ -208,7 +208,12 @@ void PlanetaryView::onSavePlanetData()
 
 void PlanetaryView::onResetPlanetaryView()
 {
+    
+}
 
+void PlanetaryView::setDataModel(DataModel &dm)
+{
+    m_DM = dm;
 }
 
 

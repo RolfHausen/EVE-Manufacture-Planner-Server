@@ -2,7 +2,12 @@
 
 AbyssalMaterial::AbyssalMaterial()
 {
+    
+}
 
+AbyssalMaterial::~AbyssalMaterial()
+{
+    
 }
 
 int AbyssalMaterial::AMID() const

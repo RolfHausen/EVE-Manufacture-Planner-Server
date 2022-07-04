@@ -2,7 +2,12 @@
 
 T3Product::T3Product()
 {
+    
+}
 
+T3Product::~T3Product()
+{
+    
 }
 
 int T3Product::T3ID() const

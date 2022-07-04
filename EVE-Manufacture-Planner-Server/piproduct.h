@@ -7,13 +7,19 @@
 
 enum PIGrades
 {
-    P0,P1,P2,P3,P4
+    P0,
+    P1,
+    P2,
+    P3,
+    P4
 };
 
 class PIProduct : public Item
 {
 public:
     PIProduct();
+    ~PIProduct();
+
     //Getters
     int getPIID();
     QString getPIName();
@@ -34,10 +40,11 @@ public:
     void setPIIngredientAmount(int amount);
     void setPIQuantity(int quantity);
     void setPIFile(QString filename, QByteArray file);
-private:
-    int m_PIID;
-    QString m_PIName;
-    float m_PISize;   //size of the item, needed for transport calculation later
+
+    int multiplicator(); //this method return a multiplicator depending on the PIGrade
+
+private:    
+    //size of the item, needed for transport calculation later
     PIProduct* m_PIIngredient_1; //ingredients needed for producing this product
     PIProduct* m_PIIngredient_2; //those can be null if there is nothing needed
     PIProduct* m_PIIngredient_3;

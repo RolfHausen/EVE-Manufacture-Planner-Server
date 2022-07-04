@@ -53,7 +53,7 @@ public:
     QList<T1Product> LoadT1Products();
     QList<Blueprint> LoadBlueprints();
 
-    bool LoadBlueprintMaterials(QList<AbyssalMaterial> AbyssalMaterials,QList<Commodity> Commodities,QList<FuelBlock> FuelBlocks,QList<Gas> Gases,QList<IceProduct> IceProducts,QList<Mineral> Minerals,QList<MoonGoo> MoonGoos,QList<NamedComponent> NamedComponents,PIData Pdata,QList<ReactionMaterial> ReactionMaterials,QList<Salvage> Salvages,QList<T1Product> T1Products,Blueprint& Blueprint);
+    bool LoadBlueprintMaterials(QList<AbyssalMaterial>& AbyssalMaterials,QList<Commodity>& Commodities,QList<FuelBlock>& FuelBlocks,QList<Gas>& Gases,QList<IceProduct>& IceProducts,QList<Mineral>& Minerals,QList<MoonGoo>& MoonGoos,QList<NamedComponent>& NamedComponents,PIData& Pdata,QList<ReactionMaterial>& ReactionMaterials,QList<Salvage>& Salvages,QList<T1Product>& T1Products,Blueprint& Blueprint);
 
     QString LastError();
 private:

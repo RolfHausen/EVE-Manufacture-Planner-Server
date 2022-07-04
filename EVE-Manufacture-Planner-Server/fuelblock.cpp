@@ -2,7 +2,12 @@
 
 FuelBlock::FuelBlock()
 {
+    
+}
 
+FuelBlock::~FuelBlock()
+{
+    
 }
 
 int FuelBlock::FBID() const
@@ -43,4 +48,14 @@ const QString &FuelBlock::FBGroup() const
 void FuelBlock::setFBGroup(const QString &newFBGroup)
 {
     setItemGroup(newFBGroup);
+}
+
+int FuelBlock::getFBBPID() const
+{
+    return FBBPID;
+}
+
+void FuelBlock::setFBBPID(int newFBBPID)
+{
+    FBBPID = newFBBPID;
 }

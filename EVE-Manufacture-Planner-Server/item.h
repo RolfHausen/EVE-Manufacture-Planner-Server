@@ -7,6 +7,7 @@ class Item
 {
 public:
     Item();
+    virtual ~Item(){}
     Item(int id);
     int ItemId() const;
     void setItemId(int newItemId);

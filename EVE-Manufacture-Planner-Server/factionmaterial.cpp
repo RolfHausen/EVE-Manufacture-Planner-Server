@@ -2,7 +2,12 @@
 
 FactionMaterial::FactionMaterial()
 {
+    
+}
 
+FactionMaterial::~FactionMaterial()
+{
+    
 }
 
 int FactionMaterial::FMID() const

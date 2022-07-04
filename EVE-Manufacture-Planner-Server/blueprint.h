@@ -6,13 +6,16 @@
 struct Material
 {
     int amount;
-    Item item;
+    Item* item;
+    QString itemtype;
+    Material(int myamount,Item& myitem,QString myitemtype) : amount(myamount),item(&myitem),itemtype(myitemtype){}
 };
 
 class Blueprint: public Item
 {
 public:
     Blueprint();
+    ~Blueprint();
 
     int BPID() const;
     void setBPID(int newBPID);
@@ -28,16 +31,16 @@ public:
     void setBPAmount(int newBPAmount);
     const QString &BPType() const;
     void setBPType(const QString &newBPType);
-    const QMap<int, Material> &Materials() const;
+    const QList<Material> &Materials() const;
 
-    void AddMaterial(int matid,Material mat);
+    void AddMaterial(Material mat);
 
 private:
 
     QString m_BPProduct;
     int m_BPAmount; // this is the quantity that will be produced from the blueprint as output
     QString m_BPType;
-    QMap<int,Material> m_Materials; //maps the MATID as the key and the refered material
+    QList<Material> m_Materials; //maps the MATID as the key and the refered material
 
 };
 

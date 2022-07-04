@@ -1,40 +1,58 @@
 #include "productionview.h"
 #include "ui_productionview.h"
 
+
 ProductionView::ProductionView(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ProductionView)
 {
-    ui->setupUi(this);    
-    //Initialize Data to Show up in the View.
-    if (!m_DM.openDb())
-    {
-        QMessageBox QMsg;
-        QMsg.setIcon(QMessageBox::Icon::Critical);
-        QMsg.setWindowTitle("Database Connection Error");
-        QMsg.setText(m_DM.LastError());
-    }
-    m_DM.LoadPIData();
+    ui->setupUi(this);
+
+    connect(ui->BlueprintSelectionComboBox, SIGNAL(activated(int)), this, SLOT( on_BlueprintSelectionComboBox_activated(int index)));
+
+}
+
+ProductionView::~ProductionView()
+{
+    delete ui;
+}
+
+void ProductionView::setDataModel(DataModel dm)
+{
+    m_DM = dm;
+}
+
+void ProductionView::ShowData()
+{
+    //here we need no Mutex Lock for now because this only runs when the backgroundworker is done
 
     //get Data from Model
     m_PISelectionModel = new QStringListModel();
     m_PISelectionModel->setStringList(m_DM.getPIDataStringList());
     ui->PISelectionTreeView->setModel(m_PISelectionModel);
 
-    //add all Blueprintnames as Items into the Combobox
-
-    m_DM.LoadBlueprints(); //loads all Blueprints from Db
-    m_DM.LoadMaterialData(); //loads all Materials from Db
-    m_DM.LoadBlueprintMaterials(); //loads the needed Materials for each Blueprint
-
+    //there are two ProxyModels needed one for the Combobox to show and one for searching in the Completer
     m_BlueprintStringList = m_DM.getBlueprintStringList();
-    ui->BlueprintSelectionComboBox->addItems(m_BlueprintStringList);
-    QObject::connect (ui->BlueprintSelectionComboBox, SIGNAL(activated(int)), this, SLOT( on_BlueprintSelectionComboBox_activated(int index)));
-}
+    m_BpSelectionModel = new QStringListModel();
+    m_BpSelectionModel->setStringList(m_BlueprintStringList);
+    m_BPProxyModel = new QSortFilterProxyModel();
+    m_BPProxyModel->setSourceModel(m_BpSelectionModel);
+    m_BPProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 
-ProductionView::~ProductionView()
-{
-    delete ui;
+    m_BpSelectionModel = new QStringListModel();
+    m_BpSelectionModel->setStringList(m_DM.getBlueprintStringList());
+    m_BPProxyModel1 = new QSortFilterProxyModel();
+    m_BPProxyModel1->setSourceModel(m_BpSelectionModel);
+    m_BPProxyModel1->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    ui->BlueprintSelectionComboBox->setModel(m_BPProxyModel1);
+
+    QCompleter* BpSearchCompleter = new QCompleter();
+    BpSearchCompleter->setCaseSensitivity(Qt::CaseInsensitive);
+    BpSearchCompleter->setModel(m_BPProxyModel);
+    BpSearchCompleter->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
+    ui->BlueprintSelectionComboBox->setCompleter(BpSearchCompleter);
+
 }
 
 void ProductionView::on_PISelectionTreeView_doubleClicked(const QModelIndex &index)
@@ -44,6 +62,7 @@ void ProductionView::on_PISelectionTreeView_doubleClicked(const QModelIndex &ind
     //  and Filters so that index will not correspond with the index in PIData
     */
     PIProduct p=m_DM.getPIData().getItemByName(m_PISelectionModel->data(index).toString());
+    //the next line gets the related Item p and sets it into the TreeWidget because we set this as a parent.
     m_DM.getPIDataTreeItem(ui->ProductionDetailsTreeWidget,p);
 }
 
@@ -57,5 +76,14 @@ void ProductionView::on_BlueprintSelectionComboBox_activated(int index)
 void ProductionView::on_ClearPushButton_clicked()
 {
     ui->ProductionDetailsTreeWidget->clear();
+}
+
+
+void ProductionView::on_BlueprintSelectionComboBox_currentTextChanged(const QString &arg1)
+{
+    if(!arg1.isEmpty())
+    {
+        m_BPProxyModel->setFilterFixedString(arg1);
+    }
 }
 

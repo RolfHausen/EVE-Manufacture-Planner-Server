@@ -6,6 +6,7 @@ class FuelBlock:public Item
 {
 public:
     FuelBlock();
+    ~FuelBlock();
 
     int FBID() const;
     void setFBID(int newFBID);
@@ -15,6 +16,12 @@ public:
     void setFBName(const QString &newFBName);
     const QString &FBGroup() const;
     void setFBGroup(const QString &newFBGroup);
+
+    int getFBBPID() const;
+    void setFBBPID(int newFBBPID);
+
+private:
+    int FBBPID;
 };
 
 #endif // FUELBLOCK_H

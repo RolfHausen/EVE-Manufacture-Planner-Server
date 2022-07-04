@@ -8,6 +8,8 @@ class T3Product : public Item
 {
 public:
     T3Product();
+    ~T3Product();
+
     int T3ID() const;
     void setT3ID(int newT3ID);
     float T3Size() const;

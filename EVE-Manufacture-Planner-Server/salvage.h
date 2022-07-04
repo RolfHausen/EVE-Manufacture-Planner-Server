@@ -7,6 +7,8 @@ class Salvage : public Item
 {
 public:
     Salvage();
+    ~Salvage();
+
     int SALID() const;
     void setSALID(int newSALID);
     float SALSize() const;

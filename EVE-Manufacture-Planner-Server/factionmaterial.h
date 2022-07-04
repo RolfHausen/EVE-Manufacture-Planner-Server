@@ -7,6 +7,7 @@ class FactionMaterial :public Item
 {
 public:
     FactionMaterial();
+    ~FactionMaterial();
 
     int FMID() const;
     void setFMID(int newFMID);

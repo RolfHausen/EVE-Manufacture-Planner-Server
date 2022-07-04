@@ -13,11 +13,13 @@ SOURCES += \
     abyssalmaterial.cpp \
     blueprint.cpp \
     commodity.cpp \
+    dataloadworker.cpp \
     datamodel.cpp \
     dbmanager.cpp \
     factionmaterial.cpp \
     fuelblock.cpp \
     gas.cpp \
+    globals.cpp \
     iceproduct.cpp \
     item.cpp \
     main.cpp \
@@ -40,11 +42,13 @@ HEADERS += \
     abyssalmaterial.h \
     blueprint.h \
     commodity.h \
+    dataloadworker.h \
     datamodel.h \
     dbmanager.h \
     factionmaterial.h \
     fuelblock.h \
     gas.h \
+    globals.h \
     iceproduct.h \
     item.h \
     mainwindow.h \

@@ -2,7 +2,12 @@
 
 IceProduct::IceProduct()
 {
+    
+}
 
+IceProduct::~IceProduct()
+{
+    
 }
 
 int IceProduct::IceID() const

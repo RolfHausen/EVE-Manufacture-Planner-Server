@@ -151,15 +151,15 @@ void DataModel::getPIDataTreeItem(QTreeWidget* parent,PIProduct p)
 
     if(p.getIngredient(1))
     {
-        buildPIDataItemTree(Itemroot,p.getIngredient(1));
+        buildPIDataItemTree(Itemroot,p.getIngredient(1),0); //to show the default data we set the amount to 0
 
         if(p.getIngredient(2))
         {
-            buildPIDataItemTree(Itemroot,p.getIngredient(2));
+            buildPIDataItemTree(Itemroot,p.getIngredient(2),0);
 
             if(p.getIngredient(3))
             {
-                buildPIDataItemTree(Itemroot,p.getIngredient(3));
+                buildPIDataItemTree(Itemroot,p.getIngredient(3),0);
             }
         }
     }
@@ -413,14 +413,9 @@ void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp)
     Itemroot->setText(COLPRODUCTNAME,bp.BPProduct());
     Itemroot->setText(COLOUTPUTAMOUNT,QString::number(bp.BPAmount()));
 
-    QList<Material> Mats = bp.Materials().values();
-    for(int i=0;i<Mats.count();i++)
-    {
-        QTreeWidgetItem *child;
-        child = new QTreeWidgetItem(Itemroot);
-        child->setText(COLPRODUCTNAME,Mats[i].item.Name());
-        child->setText(COLINPUTAMOUNT,QString::number(Mats[i].amount));
-    }
+    buildBlueprintItemTree(Itemroot,bp,bp.BPAmount());
+
+
 }
 
 
@@ -436,7 +431,7 @@ QString DataModel::readPwdFile()
     return in.readLine(maxleng);
 }
 
-QTreeWidgetItem *DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProduct *p)
+void DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProduct *p, int amount)
 {
     //This is a recursive Method!
     //the code here is not redundant because this data need to be filled for each child also
@@ -449,20 +444,25 @@ QTreeWidgetItem *DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProdu
     QTreeWidgetItem *child;
     child = new QTreeWidgetItem(parent);
     child->setText(COLPRODUCTNAME,p->getPIName());
-    child->setText(COLINPUTAMOUNT,QString::number(p->getPIIngredientAmount()));
-    child->setText(COLOUTPUTAMOUNT,QString::number(p->getPIQuantity()));
+    int multi = p->multiplicator();
+    int inAmount = 0;    
+
+    inAmount = (p->getPIQuantity()*multi) * amount;
+
+    child->setText(COLINPUTAMOUNT,QString::number(inAmount));
+    //child->setText(COLOUTPUTAMOUNT,QString::number(outAmount));
 
     if(p->getIngredient(1))
     {
-        buildPIDataItemTree(child,p->getIngredient(1));
+        buildPIDataItemTree(child,p->getIngredient(1),amount);
 
         if(p->getIngredient(2))
         {
-            buildPIDataItemTree(child,p->getIngredient(2));
+            buildPIDataItemTree(child,p->getIngredient(2),amount);
 
             if(p->getIngredient(3))
             {
-                buildPIDataItemTree(child,p->getIngredient(3));
+                buildPIDataItemTree(child,p->getIngredient(3),amount);
             }
             else
             {
@@ -475,5 +475,122 @@ QTreeWidgetItem *DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProdu
         }
     }
     //if there is no first one there will be no other because of Database
-    return child; //here we return from each layer of the tree
+
+    //because we build the tree up to down we do not need to return any value
+}
+
+void DataModel::buildBlueprintItemTree(QTreeWidgetItem *parent, Blueprint bp, int amount)
+{
+    //This is a recursive Method!
+    //the code here is not redundant because this data need to be filled for each child also
+
+    //these constants are just for readabillity
+    const int COLPRODUCTNAME =0;
+    const int COLINPUTAMOUNT =1;
+    const int COLOUTPUTAMOUNT =2;
+
+    QList<Material> Mats = bp.Materials();
+    for(int i=0;i<Mats.count();i++)
+    {
+        QTreeWidgetItem *child;
+        child = new QTreeWidgetItem(parent);
+        child->setText(COLPRODUCTNAME,Mats[i].item->Name());
+        child->setText(COLINPUTAMOUNT,QString::number(Mats[i].amount*amount));
+
+
+        //now we need to determine what type our material is to consider if we need to add more nodes to our tree
+
+        if(Mats[i].itemtype == "PIProduct")
+        {
+            //has a own architecture of ingrediens we can make use of.
+            PIProduct* p = dynamic_cast<PIProduct*>(Mats[i].item);
+            if(p->getIngredient(1)!=nullptr)
+            {
+                buildPIDataItemTree(child,p->getIngredient(1),amount*Mats[i].amount);
+            }
+            if(p->getIngredient(2)!=nullptr)
+            {
+                buildPIDataItemTree(child,p->getIngredient(2),amount*Mats[i].amount);
+            }
+            if(p->getIngredient(3)!=nullptr)
+            {
+                buildPIDataItemTree(child,p->getIngredient(3),amount*Mats[i].amount);
+            }
+
+
+        }
+        else if(Mats[i].itemtype == "Commodity")
+        {
+            Commodity* co = dynamic_cast<Commodity*>(Mats[i].item);
+            bool found = false;
+            int j=0;
+            while(!found && j < m_Blueprints.count())
+            {
+                if(co->getCOBPID()==m_Blueprints[j].BPID())
+                {
+                    found = true;
+                    buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+                }
+                j++;
+            }
+            //if nothing is found then it simply has no Blueprint and therefor no materials and its tree is complete
+        }
+
+        else if(Mats[i].itemtype == "Reaction")
+        {
+            //get the corresponding ReactionFormula within the Blueprints
+            ReactionMaterial* rm = dynamic_cast<ReactionMaterial*>(Mats[i].item);
+            bool found = false;
+            int j=0;
+            while(!found && j < m_Blueprints.count())
+            {
+                if(rm->getRMBPID()==m_Blueprints[j].BPID())
+                {
+                    found=true;
+                    buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+                }
+                j++;
+            }
+
+        }
+        else if(Mats[i].itemtype == "T1Product")
+        {
+            //check BlueprintId of the current Product
+            T1Product* t1 = dynamic_cast<T1Product*>(Mats[i].item);
+            bool found = false;
+            int j=0;
+            while (!found && j<m_Blueprints.count())
+            {
+               if(t1->getT1BPID()==m_Blueprints[j].BPID())
+               {
+                   found = true;
+                   buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+               }
+               j++;
+            }
+        }
+        else if(Mats[i].itemtype == "FuelBlock")
+        {
+            //get the BlueprintId of the FuelBlock
+            FuelBlock* fb= dynamic_cast<FuelBlock*>(Mats[i].item);
+            bool found = false;
+            int j =0;
+            while(!found && j < m_Blueprints.count())
+            {
+                if(fb->getFBBPID()==m_Blueprints[j].BPID())
+                {
+                    found = true;
+                    buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+                }
+                j++;
+            }
+        }
+        else
+        {
+            //all other Materials have no corresponding Blueprint or Material below
+            //this is why here is no code for them.
+        }
+
+
+    }
 }
