@@ -25,13 +25,9 @@ public:
 
 private slots:
 
-    void on_PISelectionTreeView_doubleClicked(const QModelIndex &index);
-    void on_BlueprintSelectionComboBox_activated(int index);
     void on_ClearPushButton_clicked();
-
-
-
-    void on_BlueprintSelectionComboBox_currentTextChanged(const QString &arg1);
+    void on_BlueprintSearchLineEdit_returnPressed();
+    void on_AddpushButton_clicked();
 
 private:
     Ui::ProductionView *ui;
@@ -41,6 +37,9 @@ private:
     QStringListModel* m_BpSelectionModel;
     QSortFilterProxyModel* m_BPProxyModel;
     QSortFilterProxyModel* m_BPProxyModel1;
+
+    void AddTreeWidgetItem();
+
 };
 
 #endif // PRODUCTIONVIEW_H

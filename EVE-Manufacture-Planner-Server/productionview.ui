@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>ProductionView</class>
  <widget class="QDialog" name="ProductionView">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,16 +16,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTreeView" name="PISelectionTreeView">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>190</y>
-     <width>251</width>
-     <height>121</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="ClearPushButton">
    <property name="geometry">
     <rect>
@@ -74,25 +67,12 @@
     </property>
    </column>
   </widget>
-  <widget class="QComboBox" name="BlueprintSelectionComboBox">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>20</y>
-     <width>241</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="editable">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>0</y>
-     <width>241</width>
+     <width>231</width>
      <height>16</height>
     </rect>
    </property>
@@ -100,17 +80,33 @@
     <string>Select Blueprint:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLineEdit" name="BlueprintSearchLineEdit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>170</y>
-     <width>241</width>
-     <height>16</height>
+     <x>10</x>
+     <y>20</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="AddpushButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>20</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Select Planetary Product</string>
+    <string>Add</string>
    </property>
   </widget>
  </widget>
