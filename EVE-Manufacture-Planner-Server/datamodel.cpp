@@ -145,21 +145,20 @@ void DataModel::getPIDataTreeItem(QTreeWidget* parent,PIProduct p)
 
     QTreeWidgetItem *Itemroot;
     Itemroot= new QTreeWidgetItem(parent);
-    Itemroot->setText(COLPRODUCTNAME,p.getPIName());
-    Itemroot->setText(COLINPUTAMOUNT,QString::number(p.getPIIngredientAmount()));
+    Itemroot->setText(COLPRODUCTNAME,p.getPIName());    
     Itemroot->setText(COLOUTPUTAMOUNT,QString::number(p.getPIQuantity()));
 
     if(p.getIngredient(1))
     {
-        buildPIDataItemTree(Itemroot,p.getIngredient(1),0); //to show the default data we set the amount to 0
+        buildPIDataItemTree(Itemroot,p.getIngredient(1),1);
 
         if(p.getIngredient(2))
         {
-            buildPIDataItemTree(Itemroot,p.getIngredient(2),0);
+            buildPIDataItemTree(Itemroot,p.getIngredient(2),1);
 
             if(p.getIngredient(3))
             {
-                buildPIDataItemTree(Itemroot,p.getIngredient(3),0);
+                buildPIDataItemTree(Itemroot,p.getIngredient(3),1);
             }
         }
     }
@@ -384,25 +383,28 @@ QStringList DataModel::getBlueprintStringList()
     return BlueprintStringList;
 }
 
-Blueprint DataModel::getBlueprintByName(QString BpName)
+QStringList DataModel::getProductStringList()
 {
-    Blueprint blueprint;
-    bool found =false;
-    int i=0;
-    while (!found && i<m_Blueprints.count())
+    QStringList ProductStringList;
+
+    for(int i=0; i<m_Blueprints.count();i++)
     {
-        if(m_Blueprints[i].BPName()==BpName)
-        {
-            blueprint = m_Blueprints[i];
-            found =true;
-        }
-        i++;
+        ProductStringList.append(m_Blueprints[i].BPProduct());
     }
-    return blueprint;
+
+    QList<PIProduct> PiProducts = m_PIData.getAll();
+    for(int i=0; i<PiProducts.count();i++)
+    {
+        ProductStringList.append(PiProducts[i].getPIName());
+    }
+    ProductStringList.sort(Qt::CaseSensitive);
+    return ProductStringList;
 }
 
 void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp)
 {
+    //this method is NOT recursive!
+
     //these constants are just for readabillity
     const int COLPRODUCTNAME =0;
     const int COLINPUTAMOUNT =1;
@@ -415,10 +417,7 @@ void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp)
 
     buildBlueprintItemTree(Itemroot,bp,bp.BPAmount());
 
-
 }
-
-
 
 QString DataModel::readPwdFile()
 {
@@ -429,6 +428,11 @@ QString DataModel::readPwdFile()
     file.open(QIODevice::ReadOnly);
     QTextStream in(&file);
     return in.readLine(maxleng);
+}
+
+const QList<Blueprint> &DataModel::Blueprints() const
+{
+    return m_Blueprints;
 }
 
 void DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProduct *p, int amount)
