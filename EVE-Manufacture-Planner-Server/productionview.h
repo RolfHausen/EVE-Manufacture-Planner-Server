@@ -25,16 +25,14 @@ public:
 
 private slots:
 
-    void on_ClearPushButton_clicked();
-    void on_BlueprintSearchLineEdit_returnPressed();
-    void on_AddpushButton_clicked();
+    void on_ClearPushButton_clicked();    
+    void on_AddpushButton_clicked();    
 
 private:
     Ui::ProductionView *ui;
     DataModel m_DM;
-    QStringListModel* m_PISelectionModel;
-    QStringList m_BlueprintStringList;
-    QStringListModel* m_BpSelectionModel;
+    QStringList m_ProductStringList;
+    QStringListModel* m_ProductSelectionModel;
     QSortFilterProxyModel* m_BPProxyModel;
     QSortFilterProxyModel* m_BPProxyModel1;
 
