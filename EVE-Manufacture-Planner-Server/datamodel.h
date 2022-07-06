@@ -39,9 +39,11 @@ public:
     bool LoadBlueprints();
     bool LoadBlueprintMaterials();
 
-    QStringList getBlueprintStringList();
-    Blueprint getBlueprintByName(QString BpName);
+    QStringList getBlueprintStringList();    
+    QStringList getProductStringList();    
     void getBlueprintMaterialsTreeItem(QTreeWidget* parent,Blueprint bp);
+
+    const QList<Blueprint> &Blueprints() const;
 
 private:
     DbManager m_DbMan;
