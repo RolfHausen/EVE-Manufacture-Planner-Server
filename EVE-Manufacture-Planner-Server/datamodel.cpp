@@ -134,7 +134,7 @@ QStringList DataModel::getPIDataByPGrade(PIGrades grade)
     return PINames;
 }
 
-void DataModel::getPIDataTreeItem(QTreeWidget* parent,PIProduct p)
+void DataModel::getPIDataTreeItem(QTreeWidget* parent,PIProduct p, int amount)
 {
     //this method is NOT recursive!
 
@@ -146,19 +146,44 @@ void DataModel::getPIDataTreeItem(QTreeWidget* parent,PIProduct p)
     QTreeWidgetItem *Itemroot;
     Itemroot= new QTreeWidgetItem(parent);
     Itemroot->setText(COLPRODUCTNAME,p.getPIName());    
-    Itemroot->setText(COLOUTPUTAMOUNT,QString::number(p.getPIQuantity()));
+
+
+    int inAmount = 0; //amount of Ingredients
+    int outAmount = 0;
+    int remains = 0; //restamount because of integer divison
+    int quantity = p.getPIQuantity(); //outputmount per cycle
+    int Prodcyle =0; //cycles to produce the requested amount
+
+    if(amount>=quantity) //if amount is more than one cycle produces
+    {
+        Prodcyle = amount/quantity;
+        remains = amount % quantity;
+        if(remains > 0)
+        {
+           Prodcyle++; //we need to add one cycle
+        }
+        inAmount = Prodcyle * p.getPIIngredientAmount();
+        outAmount = Prodcyle * quantity;
+    }
+    else //if the amount is smaller than one production cycle
+    {
+        inAmount = p.getPIIngredientAmount(); //then we produce exact one cylce
+        outAmount = quantity;
+    }
+
+    Itemroot->setText(COLOUTPUTAMOUNT,QString::number(outAmount));
 
     if(p.getIngredient(1))
     {
-        buildPIDataItemTree(Itemroot,p.getIngredient(1),1);
+        buildPIDataItemTree(Itemroot,p.getIngredient(1),inAmount);
 
         if(p.getIngredient(2))
         {
-            buildPIDataItemTree(Itemroot,p.getIngredient(2),1);
+            buildPIDataItemTree(Itemroot,p.getIngredient(2),inAmount);
 
             if(p.getIngredient(3))
             {
-                buildPIDataItemTree(Itemroot,p.getIngredient(3),1);
+                buildPIDataItemTree(Itemroot,p.getIngredient(3),inAmount);
             }
         }
     }
@@ -401,7 +426,7 @@ QStringList DataModel::getProductStringList()
     return ProductStringList;
 }
 
-void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp)
+void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp, int amount)
 {
     //this method is NOT recursive!
 
@@ -413,9 +438,22 @@ void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp)
     QTreeWidgetItem *Itemroot;
     Itemroot= new QTreeWidgetItem(parent);
     Itemroot->setText(COLPRODUCTNAME,bp.BPProduct());
-    Itemroot->setText(COLOUTPUTAMOUNT,QString::number(bp.BPAmount()));
 
-    buildBlueprintItemTree(Itemroot,bp,bp.BPAmount());
+    //acutally we use the wanted production amount and not the runs
+    //if we want to use the runs then the calculation is runs * bp.BPAmount
+    int ProdAmount = 0;
+    if(amount<bp.BPAmount())
+    {
+        ProdAmount=bp.BPAmount(); //for example a BP produces 100 pieces and the given amount is 50 then 100 is used because it is the minimum per run
+    }
+    else
+    {
+        ProdAmount=amount;
+    }
+
+    Itemroot->setText(COLOUTPUTAMOUNT,QString::number(ProdAmount));
+
+    buildBlueprintItemTree(Itemroot,bp,ProdAmount);
 
 }
 
@@ -448,25 +486,41 @@ void DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProduct *p, int a
     QTreeWidgetItem *child;
     child = new QTreeWidgetItem(parent);
     child->setText(COLPRODUCTNAME,p->getPIName());
-    int multi = p->multiplicator();
-    int inAmount = 0;    
 
-    inAmount = (p->getPIQuantity()*multi) * amount;
+    int inAmount = 0; //amount of Ingredients
+    int remains = 0; //restamount because of integer divison
+    int quantity = p->getPIQuantity(); //outputmount per cycle
+    int Prodcyle =0; //cycles to produce the requested amount
 
-    child->setText(COLINPUTAMOUNT,QString::number(inAmount));
+    if(amount>=quantity) //if amount is more than one cycle produces
+    {
+        Prodcyle = amount/quantity;
+        remains = amount % quantity;
+        if(remains > 0)
+        {
+           Prodcyle++; //we need to add one cycle
+        }
+        inAmount = Prodcyle * p->getPIIngredientAmount();
+    }
+    else //if the amount is smaller than one production cycle
+    {
+        inAmount = p->getPIIngredientAmount(); //then we produce exact one cylce
+    }
+
+    child->setText(COLINPUTAMOUNT,QString::number(amount));
     //child->setText(COLOUTPUTAMOUNT,QString::number(outAmount));
 
     if(p->getIngredient(1))
     {
-        buildPIDataItemTree(child,p->getIngredient(1),amount);
+        buildPIDataItemTree(child,p->getIngredient(1),inAmount);
 
         if(p->getIngredient(2))
         {
-            buildPIDataItemTree(child,p->getIngredient(2),amount);
+            buildPIDataItemTree(child,p->getIngredient(2),inAmount);
 
             if(p->getIngredient(3))
             {
-                buildPIDataItemTree(child,p->getIngredient(3),amount);
+                buildPIDataItemTree(child,p->getIngredient(3),inAmount);
             }
             else
             {

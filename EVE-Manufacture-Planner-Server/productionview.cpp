@@ -5,7 +5,7 @@
 ProductionView::ProductionView(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ProductionView)
-{
+{    
     ui->setupUi(this);
 }
 
@@ -60,13 +60,23 @@ void ProductionView::AddTreeWidgetItem()
     QList<PIProduct> PiProducts = m_DM.getPIData().getAll();
     int i=0;
     bool found = false;
+    int ProdAmount = 0;
+    QRegExp re("\\d*");  // a digit (\d), zero or more times (*)
+    if (re.exactMatch(ui->ProdAmountLineEdit->text())) //if it consists only of numbers
+    {
+        ProdAmount= ui->ProdAmountLineEdit->text().toUInt();
+    }
+    else
+    {
+        return;
+    }
 
     while(!found && i < Blueprints.count())
     {
         if(Blueprints[i].BPProduct()==Product)
         {
             found=true;
-            m_DM.getBlueprintMaterialsTreeItem(ui->ProductionDetailsTreeWidget,Blueprints[i]);
+            m_DM.getBlueprintMaterialsTreeItem(ui->ProductionDetailsTreeWidget,Blueprints[i],ProdAmount);
         }
         i++;
     }
@@ -76,7 +86,7 @@ void ProductionView::AddTreeWidgetItem()
         if(PiProducts[i].getPIName()==Product)
         {
             found = true;
-            m_DM.getPIDataTreeItem(ui->ProductionDetailsTreeWidget,PiProducts[i]);
+            m_DM.getPIDataTreeItem(ui->ProductionDetailsTreeWidget,PiProducts[i],ProdAmount);
         }
         i++;
     }

@@ -22,7 +22,7 @@ public:
     QStandardItemModel *getPlanetItemModel();
     QStringList getPIDataStringList();
     QStringList getPIDataByPGrade(PIGrades grade);
-    void getPIDataTreeItem(QTreeWidget* parent,PIProduct p);
+    void getPIDataTreeItem(QTreeWidget* parent,PIProduct p,int amount);
     QStringList getPlanetTypes();
     QStringList getBarrenSources();
     QStringList getGasSources();
@@ -41,7 +41,7 @@ public:
 
     QStringList getBlueprintStringList();    
     QStringList getProductStringList();    
-    void getBlueprintMaterialsTreeItem(QTreeWidget* parent,Blueprint bp);
+    void getBlueprintMaterialsTreeItem(QTreeWidget* parent,Blueprint bp,int amount);
 
     const QList<Blueprint> &Blueprints() const;
 
