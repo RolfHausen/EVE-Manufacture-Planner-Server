@@ -55,9 +55,7 @@ void ProductionView::on_AddpushButton_clicked()
 
 void ProductionView::AddTreeWidgetItem()
 {
-    QString Product = ui->ProductSearchLineEdit->text();
-    QList<Blueprint> Blueprints = m_DM.Blueprints();
-    QList<PIProduct> PiProducts = m_DM.getPIData().getAll();
+    QString ProductName = ui->ProductSearchLineEdit->text();    
     int i=0;
     bool found = false;
     int ProdAmount = 0;
@@ -70,31 +68,55 @@ void ProductionView::AddTreeWidgetItem()
     {
         return;
     }
-
-    while(!found && i < Blueprints.count())
+    ProductionTreeItem ProductTreeItem;
+    while(!found && i < m_DM.ProductionTrees().count())
     {
-        if(Blueprints[i].BPProduct()==Product)
-        {
-            found=true;
-            m_DM.getBlueprintMaterialsTreeItem(ui->ProductionDetailsTreeWidget,Blueprints[i],ProdAmount);
-        }
-        i++;
-    }
-    i=0;
-    while(!found && i < PiProducts.count())
-    {
-        if(PiProducts[i].getPIName()==Product)
+        qDebug() << m_DM.ProductionTrees()[i].Product()->Name() << "\t" << i;
+        if(m_DM.ProductionTrees()[i].Product()->Name() == ProductName)
         {
             found = true;
-            m_DM.getPIDataTreeItem(ui->ProductionDetailsTreeWidget,PiProducts[i],ProdAmount);
+            ProductTreeItem = m_DM.ProductionTrees()[i];
         }
         i++;
     }
 
 
-    //Blueprint bp = m_DM.getBlueprintByName(ui->ProductSearchLineEdit->text());
-    //m_DM.getBlueprintMaterialsTreeItem(ui->ProductionDetailsTreeWidget,bp);
+
+    const int COLPRODUCTNAME =0;
+    const int COLINPUTAMOUNT =1;
+    const int COLOUTPUTAMOUNT =2;
+
+    QTreeWidgetItem* ItemRoot = new QTreeWidgetItem(ui->ProductionDetailsTreeWidget);
+    ItemRoot->setText(COLPRODUCTNAME,ProductTreeItem.Product()->Name());
+
+    for(int i=0; i < ProductTreeItem.TreeItems().count();i++)
+    {
+        QTreeWidgetItem* treeitem = new QTreeWidgetItem(ItemRoot);
+        treeitem->setText(COLPRODUCTNAME,ProductTreeItem.TreeItems()[i]->Product()->Name());
+
+        BuildTreeWidgetItemTree(treeitem,ProductTreeItem.TreeItems()[i]);
+    }
+
 }
+
+void ProductionView::BuildTreeWidgetItemTree(QTreeWidgetItem *wparent, ProductionTreeItem* pparent)
+{
+    const int COLPRODUCTNAME =0;
+    const int COLINPUTAMOUNT =1;
+    const int COLOUTPUTAMOUNT =2;
+
+    QTreeWidgetItem* wchild = new QTreeWidgetItem(wparent);
+    wchild->setText(COLPRODUCTNAME,pparent->Product()->Name());
+
+    for(int i=0; i < pparent->TreeItems().count();i++)
+    {
+        QTreeWidgetItem* treeitem = new QTreeWidgetItem(wchild);
+        treeitem->setText(COLPRODUCTNAME,pparent->TreeItems()[i]->Product()->Name());
+
+        BuildTreeWidgetItemTree(treeitem,pparent->TreeItems()[i]);
+    }
+}
+
 
 
 

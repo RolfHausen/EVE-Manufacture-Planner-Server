@@ -37,6 +37,7 @@ private:
     QSortFilterProxyModel* m_BPProxyModel1;
 
     void AddTreeWidgetItem();
+    void BuildTreeWidgetItemTree(QTreeWidgetItem* wparent,ProductionTreeItem* pparent);
 
 };
 

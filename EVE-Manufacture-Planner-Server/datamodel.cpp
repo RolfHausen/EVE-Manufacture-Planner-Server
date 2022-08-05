@@ -426,6 +426,74 @@ QStringList DataModel::getProductStringList()
     return ProductStringList;
 }
 
+//this creates only a ProductionTreeItem per Entry of Blueprints or PiProducts
+//it does not create their materials / ingredients because this will be recursiv.
+void DataModel::LoadProductionTrees()
+{
+    for(int i=0; i<m_Blueprints.count();i++)
+    {
+        ProductionTreeItem treeItem;        
+        treeItem.setProductBlueprint(&m_Blueprints[i]);
+        bool found = false;
+        int j=0;
+
+        if(m_Blueprints[i].BPType() == "Commodity")
+        {
+            while(!found && j < m_Commodities.count())
+            {
+                if(m_Commodities[j].getCOName() == m_Blueprints[i].BPProduct())
+                {
+                    found = true;
+                    treeItem.setProduct(&m_Commodities[j]);
+                }
+                j++;
+            }
+
+        }
+        else if(m_Blueprints[i].BPType() == "T1Product")
+        {
+            while(!found && j < m_T1Products.count())
+            {
+                if(m_T1Products[j].T1Name() == m_Blueprints[i].BPProduct())
+                {
+                    found = true;
+                    treeItem.setProduct(&m_T1Products[j]);
+                }
+                j++;
+            }
+        }
+        else if(m_Blueprints[i].BPType() == "Reaction")
+        {
+            while(!found && j < m_ReactionMaterials.count())
+            {
+                if(m_ReactionMaterials[j].RMName() == m_Blueprints[i].BPProduct())
+                {
+                    found = true;
+                    treeItem.setProduct(&m_ReactionMaterials[j]);
+                }
+                j++;
+            }
+        }
+        //this needs to be extended by every BPType that is inserted into Blueprint table
+
+        treeItem.setItemtype(m_Blueprints[i].BPType());        
+        //here we add it to our List.
+        m_ProductionTrees.append(treeItem);
+        buildProductionTrees(&treeItem);
+
+    }
+
+    QList<PIProduct> PiProducts = m_PIData.getAll();
+    for(int i = 0; i < PiProducts.count(); i++)
+    {
+        ProductionTreeItem treeItem;
+        treeItem.setProduct(&PiProducts[i]);
+        treeItem.setItemtype("PIProduct");
+        m_ProductionTrees.append(treeItem);
+        buildProductionTrees(&treeItem);
+    }
+}
+
 void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp, int amount)
 {
     //this method is NOT recursive!
@@ -439,21 +507,90 @@ void DataModel::getBlueprintMaterialsTreeItem(QTreeWidget *parent, Blueprint bp,
     Itemroot= new QTreeWidgetItem(parent);
     Itemroot->setText(COLPRODUCTNAME,bp.BPProduct());
 
-    //acutally we use the wanted production amount and not the runs
-    //if we want to use the runs then the calculation is runs * bp.BPAmount
-    int ProdAmount = 0;
-    if(amount<bp.BPAmount())
+    /* Explanation:
+     * acutally we use the wanted production amount and not the runs
+     * if we want to use the runs as directly input then the calculation is runs * bp.BPAmount
+     * but here we go from the wanted production amount to the runs it would mean to produce the amount
+     * even if that means we need to produce more then we need. For example 250 R.A.M. Starshiptech
+     * can not be produced without overproduction as per run 100 pieces are made. so we have 3 runs
+     * creating 300 pieces but thisway we have the 250 pieces and not just 200 and 50 missing or
+     * realizing that our resource calculation is missing material for the other 50 pieces
+     * meaning to start a third run
+     */
+
+    int ProdAmount = 0;    
+    int remains = 0; //restamount because of integer divison
+    int quantity = bp.BPAmount(); //outputmount per cycle
+    int Prodcyle =0; //cycles to produce the requested amount
+
+    if(amount>=bp.BPAmount())
     {
-        ProdAmount=bp.BPAmount(); //for example a BP produces 100 pieces and the given amount is 50 then 100 is used because it is the minimum per run
+        Prodcyle = amount / quantity;
+        remains = amount % quantity;
+        if(remains>0)
+        {
+            Prodcyle++;
+        }
+        ProdAmount = Prodcyle * quantity;
     }
-    else
+    else //if the amount is smaller than one run
     {
-        ProdAmount=amount;
+        ProdAmount= quantity;
     }
 
     Itemroot->setText(COLOUTPUTAMOUNT,QString::number(ProdAmount));
 
     buildBlueprintItemTree(Itemroot,bp,ProdAmount);
+
+}
+
+
+void DataModel::buildProductionTrees(ProductionTreeItem* parent)
+{
+    if(parent->hasBlueprint())
+    {
+        QList<Material> Mats = parent->ProductBlueprint()->Materials();
+
+        for(int i=0; i<Mats.count();i++)
+        {
+            ProductionTreeItem* treeitem = new ProductionTreeItem();
+            treeitem->setProduct(Mats[i].item);
+            treeitem->setItemtype(Mats[i].itemtype);
+            bool found = false;
+            int j=0;
+            while(!found && j < m_Blueprints.count())
+            {
+                if(m_Blueprints[j].BPProduct() == Mats[i].item->Name())
+                {
+                    found = true;
+                    treeitem->setProductBlueprint(&m_Blueprints[j]);
+                }
+                j++;
+            }
+            parent->AddProductionTreeItem(treeitem);
+            buildProductionTrees(treeitem);
+        }
+    }
+    else if (parent->getItemtype()== "PIProduct")
+    {
+        PIProduct* p = dynamic_cast<PIProduct*>(parent->Product());
+        for(int i=1; i<4; i++) //each PI can have 3 ingredients starting by index 1!
+        {
+            if(p->getIngredient(i)!= nullptr)
+            {
+                ProductionTreeItem* treeitem = new ProductionTreeItem();
+                treeitem->setProduct(p->getIngredient(1));
+                treeitem->setItemtype(parent->getItemtype()); //all ingedients of PI is also PI
+                parent->AddProductionTreeItem(treeitem);
+                buildProductionTrees(treeitem);
+            }
+        }
+    }
+    else //should be a Leaf of the Tree as it is a Mineral or something like this having no materials below
+    {
+       //in this case we do not need to add another child because it has no material below itself
+       // and also itself is already be created in the recursive loop before.
+    }
 
 }
 
@@ -466,6 +603,11 @@ QString DataModel::readPwdFile()
     file.open(QIODevice::ReadOnly);
     QTextStream in(&file);
     return in.readLine(maxleng);
+}
+
+const QList<ProductionTreeItem> &DataModel::ProductionTrees() const
+{
+    return m_ProductionTrees;
 }
 
 const QList<Blueprint> &DataModel::Blueprints() const
@@ -507,7 +649,7 @@ void DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProduct *p, int a
         inAmount = p->getPIIngredientAmount(); //then we produce exact one cylce
     }
 
-    child->setText(COLINPUTAMOUNT,QString::number(amount));
+
     //child->setText(COLOUTPUTAMOUNT,QString::number(outAmount));
 
     if(p->getIngredient(1))
@@ -532,8 +674,11 @@ void DataModel::buildPIDataItemTree(QTreeWidgetItem *parent, PIProduct *p, int a
             //Normaly you put your upwards code here
         }
     }
-    //if there is no first one there will be no other because of Database
-
+    else
+    {
+        inAmount = Prodcyle * p->getPIQuantity();
+    }
+    child->setText(COLINPUTAMOUNT,QString::number(inAmount));
     //because we build the tree up to down we do not need to return any value
 }
 
@@ -553,26 +698,27 @@ void DataModel::buildBlueprintItemTree(QTreeWidgetItem *parent, Blueprint bp, in
         QTreeWidgetItem *child;
         child = new QTreeWidgetItem(parent);
         child->setText(COLPRODUCTNAME,Mats[i].item->Name());
-        child->setText(COLINPUTAMOUNT,QString::number(Mats[i].amount*amount));
 
+        int ProdAmount = 0;
 
         //now we need to determine what type our material is to consider if we need to add more nodes to our tree
 
         if(Mats[i].itemtype == "PIProduct")
         {
             //has a own architecture of ingrediens we can make use of.
-            PIProduct* p = dynamic_cast<PIProduct*>(Mats[i].item);
+            ProdAmount = Mats[i].amount * amount;
+            PIProduct* p = dynamic_cast<PIProduct*>(Mats[i].item);            
             if(p->getIngredient(1)!=nullptr)
             {
-                buildPIDataItemTree(child,p->getIngredient(1),amount*Mats[i].amount);
+                buildPIDataItemTree(child,p->getIngredient(1),ProdAmount);
             }
             if(p->getIngredient(2)!=nullptr)
             {
-                buildPIDataItemTree(child,p->getIngredient(2),amount*Mats[i].amount);
+                buildPIDataItemTree(child,p->getIngredient(2),ProdAmount);
             }
             if(p->getIngredient(3)!=nullptr)
             {
-                buildPIDataItemTree(child,p->getIngredient(3),amount*Mats[i].amount);
+                buildPIDataItemTree(child,p->getIngredient(3),ProdAmount);
             }
 
 
@@ -584,10 +730,31 @@ void DataModel::buildBlueprintItemTree(QTreeWidgetItem *parent, Blueprint bp, in
             int j=0;
             while(!found && j < m_Blueprints.count())
             {
-                if(co->getCOBPID()==m_Blueprints[j].BPID())
+                if(co->getCOBPID() == m_Blueprints[j].BPID())
                 {
                     found = true;
-                    buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+                    int quantity = m_Blueprints[j].BPAmount();
+                    int ProdCycle = 0;
+                    int remains = 0;
+                    int MatAmount = Mats[i].amount * amount;
+
+                    if(MatAmount>=quantity)
+                    {
+                        ProdCycle = MatAmount / quantity;
+                        remains = MatAmount % quantity;
+                        if(remains > 0)
+                        {
+                            ProdCycle++;
+                        }
+                        ProdAmount = ProdCycle * quantity;
+                    }
+                    else // if the amount is smaller than one run
+                    {
+                        ProdAmount = quantity;
+                    }
+
+
+                    buildBlueprintItemTree(child,m_Blueprints[j],ProdAmount);
                 }
                 j++;
             }
@@ -605,7 +772,28 @@ void DataModel::buildBlueprintItemTree(QTreeWidgetItem *parent, Blueprint bp, in
                 if(rm->getRMBPID()==m_Blueprints[j].BPID())
                 {
                     found=true;
-                    buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+
+                    int quantity = m_Blueprints[j].BPAmount();
+                    int ProdCycle = 0;
+                    int remains = 0;
+                    int MatAmount = Mats[i].amount * amount;
+
+                    if(MatAmount>=quantity)
+                    {
+                        ProdCycle = MatAmount / quantity;
+                        remains = MatAmount % quantity;
+                        if(remains > 0)
+                        {
+                            ProdCycle++;
+                        }
+                        ProdAmount = ProdCycle * quantity;
+                    }
+                    else // if the amount is smaller than one run
+                    {
+                        ProdAmount = quantity;
+                    }
+
+                    buildBlueprintItemTree(child,m_Blueprints[j],ProdAmount);
                 }
                 j++;
             }
@@ -622,7 +810,28 @@ void DataModel::buildBlueprintItemTree(QTreeWidgetItem *parent, Blueprint bp, in
                if(t1->getT1BPID()==m_Blueprints[j].BPID())
                {
                    found = true;
-                   buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+
+                   int quantity = m_Blueprints[j].BPAmount();
+                   int ProdCycle = 0;
+                   int remains = 0;
+                   int MatAmount = Mats[i].amount * amount;
+
+                   if(MatAmount>=quantity)
+                   {
+                       ProdCycle = MatAmount / quantity;
+                       remains = MatAmount % quantity;
+                       if(remains > 0)
+                       {
+                           ProdCycle++;
+                       }
+                       ProdAmount = ProdCycle * quantity;
+                   }
+                   else // if the amount is smaller than one run
+                   {
+                       ProdAmount = quantity;
+                   }
+
+                   buildBlueprintItemTree(child,m_Blueprints[j],ProdAmount);
                }
                j++;
             }
@@ -638,7 +847,28 @@ void DataModel::buildBlueprintItemTree(QTreeWidgetItem *parent, Blueprint bp, in
                 if(fb->getFBBPID()==m_Blueprints[j].BPID())
                 {
                     found = true;
-                    buildBlueprintItemTree(child,m_Blueprints[j],Mats[i].amount);
+
+                    int quantity = m_Blueprints[j].BPAmount();
+                    int ProdCycle = 0;
+                    int remains = 0;
+                    int MatAmount = Mats[i].amount * amount;
+
+                    if(MatAmount>=quantity)
+                    {
+                        ProdCycle = MatAmount / quantity;
+                        remains = MatAmount % quantity;
+                        if(remains > 0)
+                        {
+                            ProdCycle++;
+                        }
+                        ProdAmount = ProdCycle * quantity;
+                    }
+                    else // if the amount is smaller than one run
+                    {
+                        ProdAmount = quantity;
+                    }
+
+                    buildBlueprintItemTree(child,m_Blueprints[j],ProdAmount);
                 }
                 j++;
             }
@@ -646,9 +876,10 @@ void DataModel::buildBlueprintItemTree(QTreeWidgetItem *parent, Blueprint bp, in
         else
         {
             //all other Materials have no corresponding Blueprint or Material below
-            //this is why here is no code for them.
-        }
+            ProdAmount = Mats[i].amount*amount;
 
+        }
+        child->setText(COLINPUTAMOUNT,QString::number(ProdAmount));
 
     }
 }

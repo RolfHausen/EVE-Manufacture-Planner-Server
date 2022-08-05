@@ -31,6 +31,7 @@ SOURCES += \
     piproduct.cpp \
     planet.cpp \
     planetaryview.cpp \
+    productiontreeitem.cpp \
     productionview.cpp \
     reactionmaterial.cpp \
     salvage.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     piproduct.h \
     planet.h \
     planetaryview.h \
+    productiontreeitem.h \
     productionview.h \
     reactionmaterial.h \
     salvage.h \

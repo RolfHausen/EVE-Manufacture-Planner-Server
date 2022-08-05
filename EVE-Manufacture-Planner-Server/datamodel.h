@@ -4,8 +4,9 @@
 #include<QTreeWidgetItem>
 #include <QFile>
 #include<QStandardItemModel>
-#include "dbmanager.h"
-#include "planet.h"
+#include <dbmanager.h>
+#include <planet.h>
+#include <productiontreeitem.h>
 
 
 class DataModel
@@ -40,10 +41,16 @@ public:
     bool LoadBlueprintMaterials();
 
     QStringList getBlueprintStringList();    
-    QStringList getProductStringList();    
+    QStringList getProductStringList();
+    void LoadProductionTrees();
+
     void getBlueprintMaterialsTreeItem(QTreeWidget* parent,Blueprint bp,int amount);
 
+    void buildProductionTrees(ProductionTreeItem* parent);
+
     const QList<Blueprint> &Blueprints() const;
+
+    const QList<ProductionTreeItem> &ProductionTrees() const;
 
 private:
     DbManager m_DbMan;
@@ -65,9 +72,11 @@ private:
     QList<T1Product> m_T1Products;
     QList<Blueprint> m_Blueprints;
 
+    QList<ProductionTreeItem> m_ProductionTrees; //this List contains the ProductionTree for each Product.
+
+
     void buildPIDataItemTree(QTreeWidgetItem* parent,PIProduct *p, int amount);
     void buildBlueprintItemTree(QTreeWidgetItem* parent, Blueprint bp, int amount);
-
 
 };
 
